@@ -26,7 +26,7 @@ if has("gui_running")
     " --------------------
     " SPECIFIC COLORS
     " --------------------
-    let s:red           = "#C0392B"
+    let s:red           = "#EA6153"
     let s:orange        = "#E67E22"
     let s:yellow        = "#F1C40F"
     let s:green         = "#27AE60"
@@ -51,14 +51,18 @@ endif
 " ------------------------------
 " Alphabetized
 exe "hi Boolean         guifg=".s:red
-exe "hi Character       guifg=".s:red
+exe "hi Character       guifg=".s:red."                                     gui=bold"
 exe "hi Comment         guifg=".s:comment
 exe "hi Conditional     guifg=".s:orange
-exe "hi Cursor          guifg=".s:purple."      guibg=".s:foreground."      gui=bold"
-exe "hi LineNr          guifg=".s:blue."      guibg=".s:background
+exe "hi Cursor          guifg=".s:background."  guibg=".s:foreground."      gui=bold"
+exe "hi Function        guifg=".s:yellow
+exe "hi LineNr          guifg=".s:blue."        guibg=".s:background
 exe "hi Normal          guifg=".s:foreground."  guibg=".s:background
 exe "hi Number          guifg=".s:blue
+exe "hi PreProc         guifg=".s:orange."                                  gui=bold"
 exe "hi Special         guifg=".s:red."                                     gui=bold"
+exe "hi SpecialChar     guifg=".s:red."                                     gui=bold"
+exe "hi SpecialComment  guifg=".s:comment."                                 gui=bold"
 exe "hi String          guifg=".s:red
 exe "hi Type            guifg=".s:foreground
 
