@@ -38,7 +38,7 @@ if has("gui_running")
     " OTHER
     " --------------------
     let s:mode          = "gui"
-    let s:background    = "#1D1F21"
+    let s:background    = "#302F33"
     let s:foreground    = "#C5C8C6"
     "let s:selection     = 
     "let s:line          =
