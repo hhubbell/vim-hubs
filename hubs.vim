@@ -31,7 +31,8 @@ if has("gui_running")
     " --------------------
     " SPECIFIC COLORS
     " --------------------
-    let s:cream         = "#FFCFAF"
+    let s:cream         = "#DFCFAF"
+    let s:gray          = "#EDEDED"
     let s:red           = "#CC6666"
     let s:orange        = "#DE935F"
     let s:yellow        = "#F0C674"
@@ -65,7 +66,7 @@ exe "hi Conditional     guifg=".s:orange."                                  gui=
 exe "hi Cursor          guifg=".s:background."  guibg=".s:foreground."      gui=bold"
 " debug
 exe "hi Define          guifg=".s:foreground."                              gui=bold"
-exe "hi Delimiter       guifg=".s:var
+exe "hi Delimiter       guifg=".s:gray
 " diffadd
 " diffchange
 " diffdelete
