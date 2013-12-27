@@ -1,13 +1,18 @@
 "Vim color file
 "
 " File:             hubs.vim
-" URL:              https://github.com/hhubbell/?
+" URL:              https://github.com/hhubbell/vim-hubs.git
 " Maintainer:       Harry Hubbell (hhubbell@uvm.edu)
 " Version:          0.1
 " License:          Mids
 "
-" A dark colorscheme that provides more contrast that Zenburn yet isn't 
-" too colorful
+" A dark colorscheme with the right amount of contrast - Not too hard on the
+" eyes while still being of use.
+"
+" Guidelines to follow while designing this colorscheme
+"       Strings, chars, boolean - red
+"       Comments                - green
+"
 
 set background=dark
 
@@ -26,10 +31,12 @@ if has("gui_running")
     " --------------------
     " SPECIFIC COLORS
     " --------------------
-    let s:red           = "#EA6153"
-    let s:orange        = "#E67E22"
-    let s:yellow        = "#F1C40F"
-    let s:green         = "#27AE60"
+    let s:cream         = "#FFCFAF"
+    let s:red           = "#CC6666"
+    let s:orange        = "#DE935F"
+    let s:yellow        = "#F0C674"
+    let s:green         = "#5F9C6F"
+    let s:light_blue    = "#B6DAF2"
     let s:blue          = "#3498DB"
     let s:purple        = "#9B59B6"
 
@@ -37,9 +44,10 @@ if has("gui_running")
     " --------------------
     " OTHER
     " --------------------
-    let s:mode          = "gui"
-    let s:background    = "#232323"
+    let s:v_mode        = "gui"
+    let s:background    = "#202020"
     let s:foreground    = "#C5C8C6"
+    let s:var           = "#8ABEB7"
     "let s:selection     = 
     "let s:line          =
     let s:comment       = s:green
@@ -53,11 +61,11 @@ endif
 exe "hi Boolean         guifg=".s:red
 exe "hi Character       guifg=".s:red."                                     gui=bold"
 exe "hi Comment         guifg=".s:comment."                                 gui=italic"
-exe "hi Conditional     guifg=".s:orange
+exe "hi Conditional     guifg=".s:orange."                                  gui=bold"
 exe "hi Cursor          guifg=".s:background."  guibg=".s:foreground."      gui=bold"
 " debug
-" define
-" delimiter
+exe "hi Define          guifg=".s:foreground."                              gui=bold"
+exe "hi Delimiter       guifg=".s:var
 " diffadd
 " diffchange
 " diffdelete
@@ -69,17 +77,17 @@ exe "hi Float           guifg=".s:purple
 " folded column
 " folded
 exe "hi Function        guifg=".s:yellow
-" identifier
+exe "hi Identifier      guifg=".s:cream
 " incsearch
-" keyword
-" label
-exe "hi LineNr          guifg=".s:blue."        guibg=".s:background
+exe "hi Keyword         guifg=".s:orange
+exe "hi Label           guifg=".s:orange
+exe "hi LineNr          guifg=".s:light_blue."  guibg=".s:background
 " macro
 " modemsg
 " moremsg
 exe "hi Normal          guifg=".s:foreground."  guibg=".s:background
 exe "hi Number          guifg=".s:blue
-exe "hi Operator        guifg=".s:foreground
+exe "hi Operator        guifg=".s:cream
 "exe \"hi PreCondit       guifg="
 exe "hi PreProc         guifg=".s:orange."                                  gui=bold"
 exe "hi Special         guifg=".s:yellow."                                  gui=bold"
