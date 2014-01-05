@@ -12,6 +12,28 @@
 " Guidelines to follow while designing this colorscheme
 "       Strings, chars, boolean - red
 "       Comments                - green
+"       Numbers                 - blue
+"       Functions               - yellow
+"
+" -------------------------
+" Hex Lookup Guide
+" -------------------------
+"       WHITE       #C5C8C6     (Foreground)
+"       CREAM       #DFCFAF
+"       GRAY        #EDEDED
+"       BLACK       #202020     (Background)
+"       LIGHT RED   #CC6666
+"       DARK RED    #A54242
+"       ORANGE      #DE935F
+"       YELLOW      #F0C674
+"       LIGHT GREEN #96D6A6
+"       DARK GREEN  #5F9C6F
+"       LIGHT BLUE  #5F819D
+"       DARK BLUE   #81A2BE
+"       LIGHT VIOLET#85678F
+"       DARK VIOLET #B294BB
+"       LIGHT AQUA  #5E8D87
+" -------------------------
 "
 
 set background=dark
@@ -28,45 +50,41 @@ let g:colors_name="hubs"
 " DEFINITIONS
 " ------------------------------
 if has("gui_running")
-    " --------------------
-    " SPECIFIC COLORS
-    " --------------------
-    let s:cream         = "#DFCFAF"
-    let s:gray          = "#EDEDED"
-    let s:red           = "#CC6666"
-    let s:orange        = "#DE935F"
-    let s:yellow        = "#F0C674"
-    let s:green         = "#5F9C6F"
-    let s:light_blue    = "#B6DAF2"
-    let s:blue          = "#3498DB"
-    let s:purple        = "#9B59B6"
-
-
-    " --------------------
-    " OTHER
-    " --------------------
     let s:v_mode        = "gui"
-    let s:background    = "#202020"
-    let s:foreground    = "#C5C8C6"
-    let s:var           = "#8ABEB7"
-    "let s:selection     = 
-    "let s:line          =
-    let s:comment       = s:green
 
+    " COLORS
+    let s:WHITE         = "#C5C8C6"
+    let s:CREAM         = "#DFCFAF"
+    let s:GRAY          = "#EDEDED"
+    let s:BLACK         = "#202020"
+    let s:LIGHT_RED     = "#CC6666"
+    let s:DARK_RED      = "#A54242"
+    let s:ORANGE        = "#DE935F"
+    let s:YELLOW        = "#F0C674"
+    let s:LIGHT_GREEN   = "#96D6A6"
+    let s:DARK_GREEN    = "#5F9C6F"
+    let s:LIGHT_BLUE    = "#5F819D"
+    let s:DARK_BLUE     = "#81A2BE"
+    let s:LIGHT_VIOLET  = "#85678F"
+    let s:DARK_VIOLET   = "#B294BB"
+    let s:LIGHT_AQUA    = "#5E8D87"
 endif
 
 " ------------------------------
 " ASSIGN COLORS
 " ------------------------------
 " Alphabetized
-exe "hi Boolean         guifg=".s:red
-exe "hi Character       guifg=".s:red."                                     gui=bold"
-exe "hi Comment         guifg=".s:comment."                                 gui=italic"
-exe "hi Conditional     guifg=".s:orange."                                  gui=bold"
-exe "hi Cursor          guifg=".s:background."  guibg=".s:foreground."      gui=bold"
+"
+"       CLASS               FOREGROUND                  BACKGROUND              ADDITIONAL
+" --------------------------------------------------------------------------------------------
+exe "hi Boolean         guifg=".s:LIGHT_RED
+exe "hi Character       guifg=".s:LIGHT_RED."                                   gui=bold"
+exe "hi Comment         guifg=".s:DARK_GREEN."                                  gui=italic"
+exe "hi Conditional     guifg=".s:ORANGE."                                      gui=bold"
+exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:WHITE."           gui=bold"
 " debug
-exe "hi Define          guifg=".s:foreground."                              gui=bold"
-exe "hi Delimiter       guifg=".s:gray
+exe "hi Define          guifg=".s:WHITE."                                       gui=bold"
+exe "hi Delimiter       guifg=".s:GRAY
 " diffadd
 " diffchange
 " diffdelete
@@ -74,30 +92,30 @@ exe "hi Delimiter       guifg=".s:gray
 " directory
 " errormsg
 " exception
-exe "hi Float           guifg=".s:purple
+exe "hi Float           guifg=".s:LIGHT_VIOLET
 " folded column
 " folded
-exe "hi Function        guifg=".s:yellow
-exe "hi Identifier      guifg=".s:cream
+exe "hi Function        guifg=".s:YELLOW
+exe "hi Identifier      guifg=".s:CREAM
 " incsearch
-exe "hi Keyword         guifg=".s:orange
-exe "hi Label           guifg=".s:orange
-exe "hi LineNr          guifg=".s:light_blue."  guibg=".s:background
+exe "hi Keyword         guifg=".s:ORANGE
+exe "hi Label           guifg=".s:ORANGE
+exe "hi LineNr          guifg=".s:LIGHT_AQUA."      guibg=".s:BLACK
 " macro
 " modemsg
 " moremsg
-exe "hi Normal          guifg=".s:foreground."  guibg=".s:background
-exe "hi Number          guifg=".s:blue
-exe "hi Operator        guifg=".s:cream
+exe "hi Normal          guifg=".s:WHITE."           guibg=".s:BLACK
+exe "hi Number          guifg=".s:DARK_BLUE
+exe "hi Operator        guifg=".s:CREAM
 "exe \"hi PreCondit       guifg="
-exe "hi PreProc         guifg=".s:orange."                                  gui=bold"
-exe "hi Special         guifg=".s:yellow."                                  gui=bold"
-exe "hi SpecialChar     guifg=".s:red."                                     gui=bold"
-exe "hi SpecialComment  guifg=".s:comment."                                 gui=bold"
-exe "hi String          guifg=".s:red
-exe "hi Tag             guifg=".s:yellow
-exe "hi Title           guifg=".s:foreground."                              gui=bold"
-exe "hi Type            guifg=".s:foreground
+exe "hi PreProc         guifg=".s:ORANGE."                                    gui=bold"
+exe "hi Special         guifg=".s:YELLOW."                                    gui=bold"
+exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                 gui=bold"
+exe "hi SpecialComment  guifg=".s:LIGHT_GREEN."                               gui=bold"
+exe "hi String          guifg=".s:LIGHT_RED
+exe "hi Tag             guifg=".s:YELLOW
+exe "hi Title           guifg=".s:WHITE."                                     gui=bold"
+exe "hi Type            guifg=".s:WHITE
 "Missing many more
 
 
