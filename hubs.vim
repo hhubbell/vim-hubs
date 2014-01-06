@@ -35,7 +35,89 @@
 "       LIGHT AQUA  #5E8D87
 " -------------------------
 "
+" -----------------------------------------------------------------------------------
+" THE FOLLOWING IS TAKEN FROM THE VIM DOCS
+" The group name color assignments are ordered in the following manner
+" -----------------------------------------------------------------------------------
+" NAMING CONVENTIONS		    *group-name* *{group-name}* *E669* *W18*
+"
+" A syntax group name is to be used for syntax items that match the same kind of
+" thing.  These are then linked to a highlight group that specifies the color.
+" A syntax group name doesn't specify any color or attributes itself.
+"
+" The name for a highlight or syntax group must consist of ASCII letters, digits
+" and the underscore.  As a regexp: '[a-zA-Z0-9_]*'
+"
+" To be able to allow each user to pick his favorite set of colors, there must
+" be preferred names for highlight groups that are common for many languages.
+" These are the suggested group names (if syntax highlighting works properly
+" you can see the actual color, except for 'Ignore'):
+"
+"	*Comment	any comment
+"
+"	*Constant	any constant
+"	 String		a string constant: 'this is a string'
+"	 Character	a character constant: 'c', '\n'
+"	 Number		a number constant: 234, 0xff
+"	 Boolean	a boolean constant: TRUE, false
+"	 Float		a floating point constant: 2.3e10
+"
+"	*Identifier	any variable name
+"	 Function	function name (also: methods for classes)
+"
+"	*Statement	any statement
+"    Conditional	if, then, else, endif, switch, etc.
+"	 Repeat		for, do, while, etc.
+"	 Label		case, default, etc.
+"	 Operator	'sizeof', '+', '*', etc.
+"	 Keyword	any other keyword
+"	 Exception	try, catch, throw
+"
+"	*PreProc	generic Preprocessor
+"	 Include	preprocessor #include
+"	 Define		preprocessor #define
+"	 Macro		same as Define
+"	 PreCondit	preprocessor #if, #else, #endif, etc.
+"
+"	*Type		int, long, char, etc.
+"	 StorageClass	static, register, volatile, etc.
+"	 Structure	struct, union, enum, etc.
+"	 Typedef	A typedef
+"
+"	*Special	any special symbol
+"	 SpecialChar	special character in a constant
+"	 Tag		you can use CTRL-] on this
+"	 Delimiter	character that needs attention
+"	 SpecialComment	special things inside a comment
+"	 Debug		debugging statements
+"
+"	*Underlined	text that stands out, HTML links
+"
+"	*Ignore		left blank, hidden  |hl-Ignore|
+"
+"	*Error		any erroneous construct
+"
+"	*Todo		anything that needs extra attention; mostly the
+"			keywords TODO FIXME and XXX
+"
+" The names marked with * are the preferred groups; the others are minor groups.
+" For the preferred groups, the 'syntax.vim' file contains default highlighting.
+" The minor groups are linked to the preferred groups, so they get the same
+" highlighting.  You can override these defaults by using ':highlight' commands
+" after sourcing the 'syntax.vim' file.
 
+" Note that highlight group names are not case sensitive.  'String' and 'string'
+" can be used for the same group.
+
+" The following names are reserved and cannot be used as a group name:
+"	NONE   ALL   ALLBUT   contains	 contained
+
+
+"							*hl-Ignore*
+" When using the Ignore group, you may also consider using the conceal
+" mechanism.  See |conceal|.
+" -----------------------------------------------------------------------------------
+"
 set background=dark
 
 hi clear
@@ -55,8 +137,9 @@ if has("gui_running")
     " COLORS
     let s:WHITE         = "#C5C8C6"
     let s:CREAM         = "#DFCFAF"
-    let s:GRAY          = "#EDEDED"
-    let s:BLACK         = "#202020"
+    let s:GRAY          = "#707880"
+    let s:DARK_GRAY     = "#2A2A2A"
+    let s:BLACK         = "#1F1F1F"
     let s:LIGHT_RED     = "#CC6666"
     let s:DARK_RED      = "#A54242"
     let s:ORANGE        = "#DE935F"
@@ -67,55 +150,111 @@ if has("gui_running")
     let s:DARK_BLUE     = "#81A2BE"
     let s:LIGHT_VIOLET  = "#85678F"
     let s:DARK_VIOLET   = "#B294BB"
-    let s:LIGHT_AQUA    = "#5E8D87"
+    let s:LIGHT_AQUA    = "#8ABEB7"
+    let s:DARK_AQUA     = "#5E8D87"
+
+    " CONST
+    let s:FOREGROUND    = s:WHITE
+    let s:BACKGROUND    = s:DARK_GRAY
+    let s:COMMENT       = s:DARK_GREEN
 endif
 
 " ------------------------------
 " ASSIGN COLORS
 " ------------------------------
-" Alphabetized
 "
 "       CLASS               FOREGROUND                  BACKGROUND              ADDITIONAL
 " --------------------------------------------------------------------------------------------
+"
+" --- WORKSPACE ----------------
+exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:DARK_AQUA."       gui=bold"
+exe "hi LineNr          guifg=".s:WHITE."           guibg=".s:BLACK
+exe "hi NonText         guifg=".s:BACKGROUND
+exe "hi Normal          guifg=".s:FOREGROUND."      guibg=".s:BACKGROUND
+exe "hi Visual                                      guibg=".s:BLACK."           gui=bold"
+exe "hi VisualNOS                                   guibg=".s:BLACK."           gui=bold"
+
+" ------------------------------
+"
+" --- COMMENT ------------------
+exe "hi Comment         guifg=".s:COMMENT."                                     gui=italic"
+" ------------------------------
+"
+" --- VARIABLE TYPES -----------
 exe "hi Boolean         guifg=".s:LIGHT_RED
 exe "hi Character       guifg=".s:LIGHT_RED."                                   gui=bold"
-exe "hi Comment         guifg=".s:DARK_GREEN."                                  gui=italic"
+exe "hi Float           guifg=".s:LIGHT_VIOLET
+exe "hi Number          guifg=".s:DARK_BLUE
+exe "hi String          guifg=".s:LIGHT_RED
+" ------------------------------
+"
+" --- IDENTIFIER ---------------
+exe "hi Function        guifg=".s:YELLOW  
+exe "hi Identifier      guifg=".s:CREAM
+" ------------------------------
+"
+" --- STATEMENT ----------------
 exe "hi Conditional     guifg=".s:ORANGE."                                      gui=bold"
-exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:WHITE."           gui=bold"
-" debug
-exe "hi Define          guifg=".s:WHITE."                                       gui=bold"
+exe "hi Statement       guifg=".s:ORANGE."                                      gui=none"
+exe "hi Repeat          guifg=".s:ORANGE
+exe "hi Label           guifg=".s:ORANGE."                                      gui=underline"
+exe "hi Operator        guifg=".s:WHITE
+exe "hi Keyword         guifg=".s:ORANGE    
+exe "hi Exception       guifg=".s:ORANGE."                                      gui=bold"
+"-------------------------------
+"
+" --- PREPROC ------------------
+exe "hi PreCondit       guifg=".s:ORANGE
+exe "hi PreProc         guifg=".s:ORANGE."                                      gui=bold"
+exe "hi Include         guifg=".s:ORANGE
+exe "hi Define          guifg=".s:ORANGE."                                      gui=bold"
+exe "hi Macro           guifg=".s:ORANGE
+" ------------------------------
+"
+" --- TYPE ---------------------
+exe "hi Type            guifg=".s:CREAM
+exe "hi StorageClass    guifg=".s:LIGHT_AQUA."                                  gui=bold"
+exe "hi Structure       guifg=".s:LIGHT_AQUA."                                  gui=bold"
+" ------------------------------
+"
+" --- SPECIAL ------------------
+exe "hi Debug           guifg=".s:LIGHT_GREEN."                                 gui=underline"
 exe "hi Delimiter       guifg=".s:GRAY
+exe "hi MatchParen                                  guibg=".s:BLACK."           gui=bold"
+exe "hi Special         guifg=".s:YELLOW                              
+exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                   gui=bold"
+exe "hi SpecialComment  guifg=".s:COMMENT."                                     gui=bold,italic"
+exe "hi Tag             guifg=".s:YELLOW
+" ------------------------------
+"
+" --- ERROR --------------------
+exe "hi ErrorMsg        guifg=".s:WHITE."           guibg=".s:DARK_RED."        gui=bold"
+" ------------------------------
+"
+" --- HTML SPECIFIC ------------
+exe "hi htmlTag         guifg=".s:WHITE
+exe "hi htmlTagName     guifg=".s:YELLOW
+exe "hi htmlEndTag      guifg=".s:WHITE
+exe "hi htmlSpecialTagName  guifg=".s:YELLOW
+" ------------------------------
+
+
+
+" TODO UNKOWN
+exe "hi Title           guifg=".s:WHITE."                                       gui=bold"
+
 " diffadd
 " diffchange
 " diffdelete
 " difftext
 " directory
-" errormsg
-" exception
-exe "hi Float           guifg=".s:LIGHT_VIOLET
+" incsearch
 " folded column
 " folded
-exe "hi Function        guifg=".s:YELLOW
-exe "hi Identifier      guifg=".s:CREAM
-" incsearch
-exe "hi Keyword         guifg=".s:ORANGE
-exe "hi Label           guifg=".s:ORANGE
-exe "hi LineNr          guifg=".s:LIGHT_AQUA."      guibg=".s:BLACK
-" macro
+
 " modemsg
 " moremsg
-exe "hi Normal          guifg=".s:WHITE."           guibg=".s:BLACK
-exe "hi Number          guifg=".s:DARK_BLUE
-exe "hi Operator        guifg=".s:CREAM
-"exe \"hi PreCondit       guifg="
-exe "hi PreProc         guifg=".s:ORANGE."                                    gui=bold"
-exe "hi Special         guifg=".s:YELLOW."                                    gui=bold"
-exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                 gui=bold"
-exe "hi SpecialComment  guifg=".s:LIGHT_GREEN."                               gui=bold"
-exe "hi String          guifg=".s:LIGHT_RED
-exe "hi Tag             guifg=".s:YELLOW
-exe "hi Title           guifg=".s:WHITE."                                     gui=bold"
-exe "hi Type            guifg=".s:WHITE
+
 "Missing many more
 
 
