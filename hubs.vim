@@ -137,7 +137,8 @@ if has("gui_running")
     " COLORS
     let s:WHITE         = "#C5C8C6"
     let s:CREAM         = "#DFCFAF"
-    let s:GRAY          = "#707880"
+    let s:LIGHT_GRAY    = "#7D858D"
+    let s:GRAY          = "#666666"
     let s:DARK_GRAY     = "#2A2A2A"
     let s:BLACK         = "#1F1F1F"
     let s:LIGHT_RED     = "#CC6666"
@@ -146,10 +147,12 @@ if has("gui_running")
     let s:YELLOW        = "#F0C674"
     let s:LIGHT_GREEN   = "#96D6A6"
     let s:DARK_GREEN    = "#5F9C6F"
-    let s:LIGHT_BLUE    = "#5F819D"
-    let s:DARK_BLUE     = "#81A2BE"
-    let s:LIGHT_VIOLET  = "#85678F"
-    let s:DARK_VIOLET   = "#B294BB"
+    let s:GRAY_GREEN    = "#618E6D"
+    let s:LIGHT_BLUE    = "#81A2BE"
+    let s:DARK_BLUE     = "#5F819D"
+    let s:STEEL_BLUE    = "#B0C4DE"
+    let s:DARK_VIOLET   = "#85678F"
+    let s:LIGHT_VIOLET  = "#B294BB"
     let s:LIGHT_AQUA    = "#8ABEB7"
     let s:DARK_AQUA     = "#5E8D87"
 
@@ -167,13 +170,12 @@ endif
 " --------------------------------------------------------------------------------------------
 "
 " --- WORKSPACE ----------------
-exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:DARK_AQUA."       gui=bold"
-exe "hi LineNr          guifg=".s:WHITE."           guibg=".s:BLACK
+exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:WHITE."           gui=bold"
+exe "hi LineNr          guifg=".s:GRAY."            guibg=".s:BACKGROUND
 exe "hi NonText         guifg=".s:BACKGROUND
 exe "hi Normal          guifg=".s:FOREGROUND."      guibg=".s:BACKGROUND
-exe "hi Visual                                      guibg=".s:BLACK."           gui=bold"
-exe "hi VisualNOS                                   guibg=".s:BLACK."           gui=bold"
-
+exe "hi Visual          guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND
+exe "hi VisualNOS       guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND
 " ------------------------------
 "
 " --- COMMENT ------------------
@@ -183,7 +185,8 @@ exe "hi Comment         guifg=".s:COMMENT."                                     
 " --- VARIABLE TYPES -----------
 exe "hi Boolean         guifg=".s:LIGHT_RED
 exe "hi Character       guifg=".s:LIGHT_RED."                                   gui=bold"
-exe "hi Float           guifg=".s:LIGHT_VIOLET
+exe "hi Constant        guifg=".s:LIGHT_BLUE."                                  gui=bold"
+exe "hi Float           guifg=".s:DARK_VIOLET
 exe "hi Number          guifg=".s:DARK_BLUE
 exe "hi String          guifg=".s:LIGHT_RED
 " ------------------------------
@@ -195,36 +198,41 @@ exe "hi Identifier      guifg=".s:CREAM
 "
 " --- STATEMENT ----------------
 exe "hi Conditional     guifg=".s:ORANGE."                                      gui=bold"
-exe "hi Statement       guifg=".s:ORANGE."                                      gui=none"
-exe "hi Repeat          guifg=".s:ORANGE
-exe "hi Label           guifg=".s:ORANGE."                                      gui=underline"
+exe "hi Statement       guifg=".s:YELLOW."                                      gui=none"
+exe "hi Repeat          guifg=".s:ORANGE."                                      gui=bold"
+exe "hi Label           guifg=".s:YELLOW."                                      gui=underline"
 exe "hi Operator        guifg=".s:WHITE
-exe "hi Keyword         guifg=".s:ORANGE    
-exe "hi Exception       guifg=".s:ORANGE."                                      gui=bold"
+exe "hi Keyword         guifg=".s:YELLOW    
+exe "hi Exception       guifg=".s:YELLOW."                                      gui=bold"
 "-------------------------------
 "
 " --- PREPROC ------------------
-exe "hi PreCondit       guifg=".s:ORANGE
-exe "hi PreProc         guifg=".s:ORANGE."                                      gui=bold"
-exe "hi Include         guifg=".s:ORANGE
-exe "hi Define          guifg=".s:ORANGE."                                      gui=bold"
-exe "hi Macro           guifg=".s:ORANGE
+exe "hi PreCondit       guifg=".s:LIGHT_VIOLET."                                gui=bold"
+exe "hi PreProc         guifg=".s:LIGHT_VIOLET."                                gui=bold"
+exe "hi Include         guifg=".s:LIGHT_VIOLET."                                gui=bold"
+exe "hi Define          guifg=".s:LIGHT_VIOLET."                                gui=bold"
+exe "hi Macro           guifg=".s:LIGHT_VIOLET."                                gui=bold"
 " ------------------------------
 "
 " --- TYPE ---------------------
-exe "hi Type            guifg=".s:CREAM
-exe "hi StorageClass    guifg=".s:LIGHT_AQUA."                                  gui=bold"
-exe "hi Structure       guifg=".s:LIGHT_AQUA."                                  gui=bold"
+exe "hi Type            guifg=".s:LIGHT_AQUA."                                  gui=bold"
+exe "hi Typedef         guifg=".s:LIGHT_AQUA."                                  gui=bold"
+exe "hi StorageClass    guifg=".s:DARK_AQUA."                                   gui=bold"
+exe "hi Structure       guifg=".s:DARK_AQUA."                                   gui=bold"
 " ------------------------------
 "
 " --- SPECIAL ------------------
 exe "hi Debug           guifg=".s:LIGHT_GREEN."                                 gui=underline"
-exe "hi Delimiter       guifg=".s:GRAY
-exe "hi MatchParen                                  guibg=".s:BLACK."           gui=bold"
+exe "hi Delimiter       guifg=".s:LIGHT_GRAY
+exe "hi MatchParen      guifg=".s:STEEL_BLUE."      guibg=".s:BLACK."           gui=bold"
 exe "hi Special         guifg=".s:YELLOW                              
 exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                   gui=bold"
 exe "hi SpecialComment  guifg=".s:COMMENT."                                     gui=bold,italic"
 exe "hi Tag             guifg=".s:YELLOW
+" ------------------------------
+"
+" --- UNDERLINED ---------------
+exe "hi Underlined      guifg=".s:LIGHT_BLUE."                                  gui=underline"
 " ------------------------------
 "
 " --- ERROR --------------------
@@ -232,9 +240,9 @@ exe "hi ErrorMsg        guifg=".s:WHITE."           guibg=".s:DARK_RED."        
 " ------------------------------
 "
 " --- HTML SPECIFIC ------------
-exe "hi htmlTag         guifg=".s:WHITE
+exe "hi htmlTag         guifg=".s:LIGHT_GRAY
 exe "hi htmlTagName     guifg=".s:YELLOW
-exe "hi htmlEndTag      guifg=".s:WHITE
+exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
 exe "hi htmlSpecialTagName  guifg=".s:YELLOW
 " ------------------------------
 
