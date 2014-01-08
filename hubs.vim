@@ -163,6 +163,14 @@ if has("gui_running")
 endif
 
 " ------------------------------
+" ADDITIONAL SYNTAX RULES
+" ------------------------------
+" Some languages do not highlight braces, or operators
+" IT WORKS!
+syn match Braces    display '[{}()\[\]]'
+syn match JRef      display '[.]'
+
+" ------------------------------
 " ASSIGN COLORS
 " ------------------------------
 "
@@ -174,8 +182,8 @@ exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:WHITE."           
 exe "hi LineNr          guifg=".s:GRAY."            guibg=".s:BACKGROUND
 exe "hi NonText         guifg=".s:BACKGROUND
 exe "hi Normal          guifg=".s:FOREGROUND."      guibg=".s:BACKGROUND
-exe "hi Visual          guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND
-exe "hi VisualNOS       guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND
+exe "hi Visual          guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND."      gui=none"
+exe "hi VisualNOS       guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND."      gui=none"
 " ------------------------------
 "
 " --- COMMENT ------------------
@@ -186,7 +194,7 @@ exe "hi Comment         guifg=".s:COMMENT."                                     
 exe "hi Boolean         guifg=".s:LIGHT_RED
 exe "hi Character       guifg=".s:LIGHT_RED."                                   gui=bold"
 exe "hi Constant        guifg=".s:LIGHT_BLUE."                                  gui=bold"
-exe "hi Float           guifg=".s:DARK_VIOLET
+exe "hi Float           guifg=".s:DARK_BLUE
 exe "hi Number          guifg=".s:DARK_BLUE
 exe "hi String          guifg=".s:LIGHT_RED
 " ------------------------------
@@ -201,7 +209,7 @@ exe "hi Conditional     guifg=".s:ORANGE."                                      
 exe "hi Statement       guifg=".s:YELLOW."                                      gui=none"
 exe "hi Repeat          guifg=".s:ORANGE."                                      gui=bold"
 exe "hi Label           guifg=".s:YELLOW."                                      gui=underline"
-exe "hi Operator        guifg=".s:WHITE
+exe "hi Operator        guifg=".s:YELLOW
 exe "hi Keyword         guifg=".s:YELLOW    
 exe "hi Exception       guifg=".s:YELLOW."                                      gui=bold"
 "-------------------------------
@@ -209,7 +217,7 @@ exe "hi Exception       guifg=".s:YELLOW."                                      
 " --- PREPROC ------------------
 exe "hi PreCondit       guifg=".s:LIGHT_VIOLET."                                gui=bold"
 exe "hi PreProc         guifg=".s:LIGHT_VIOLET."                                gui=bold"
-exe "hi Include         guifg=".s:LIGHT_VIOLET."                                gui=bold"
+exe "hi Include         guifg=".s:LIGHT_VIOLET
 exe "hi Define          guifg=".s:LIGHT_VIOLET."                                gui=bold"
 exe "hi Macro           guifg=".s:LIGHT_VIOLET."                                gui=bold"
 " ------------------------------
@@ -229,6 +237,20 @@ exe "hi Special         guifg=".s:YELLOW
 exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                   gui=bold"
 exe "hi SpecialComment  guifg=".s:COMMENT."                                     gui=bold,italic"
 exe "hi Tag             guifg=".s:YELLOW
+hi link Braces          Delimiter
+" ------------------------------
+"
+" --- SPELLING -----------------
+exe "hi SpellBad        guifg=".s:WHITE."           guibg=".s:DARK_RED."        gui=underline"
+exe "hi SpellCap        guifg=".s:WHITE."           guibg=".s:DARK_RED."        gui=bold,underline"
+" ------------------------------
+"
+" --- DIFF ---------------------
+exe "hi DiffAdd         guifg=".s:BLACK."           guibg=".s:LIGHT_GREEN
+exe "hi DiffChange      guifg=".s:BLACK."           guibg=".s:YELLOW
+exe "hi DiffDelete      guifg=".s:BLACK."           guibg=".s:LIGHT_RED
+" difftext
+
 " ------------------------------
 "
 " --- UNDERLINED ---------------
@@ -245,16 +267,24 @@ exe "hi htmlTagName     guifg=".s:YELLOW
 exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
 exe "hi htmlSpecialTagName  guifg=".s:YELLOW
 " ------------------------------
-
-
+"
+" --- PHP SPECIFIC -------------
+hi link phpDefine       TypeDef
+hi link phpFunctions    Function
+hi link phpMemberSelector   Operator
+hi link phpMethods      Function
+hi link phpOperator     Operator
+hi link phpRelation     Operator
+hi link phpVarSelector  Identifier
+" ------------------------------
+"
+" --- JAVA SPECIFIC ------------
+hi link JRef            Operator
+" ------------------------------
 
 " TODO UNKOWN
 exe "hi Title           guifg=".s:WHITE."                                       gui=bold"
 
-" diffadd
-" diffchange
-" diffdelete
-" difftext
 " directory
 " incsearch
 " folded column
