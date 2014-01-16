@@ -131,7 +131,8 @@ let g:colors_name="hubs"
 " ------------------------------
 " DEFINITIONS
 " ------------------------------
-if has("gui_running")
+if has('gui_running')
+    " FOR GUI VIM
     let s:v_mode        = "gui"
 
     " COLORS
@@ -155,12 +156,37 @@ if has("gui_running")
     let s:LIGHT_VIOLET  = "#B294BB"
     let s:LIGHT_AQUA    = "#8ABEB7"
     let s:DARK_AQUA     = "#5E8D87"
+else 
+    " FOR TERMINAL VIM
+    let s:v_mode        = "terminal"
 
-    " CONST
-    let s:FOREGROUND    = s:WHITE
-    let s:BACKGROUND    = s:DARK_GRAY
-    let s:COMMENT       = s:DARK_GREEN
+    " COLORS
+    let s:WHITE         = "251"
+    let s:CREAM         = "#DFCFAF"
+    let s:LIGHT_GRAY    = "243"
+    let s:GRAY          = "241"
+    let s:DARK_GRAY     = "235"
+    let s:BLACK         = "234"
+    let s:LIGHT_RED     = "#CC6666"
+    let s:DARK_RED      = "#A54242"
+    let s:ORANGE        = "#DE935F"
+    let s:YELLOW        = "#F0C674"
+    let s:LIGHT_GREEN   = "#96D6A6"
+    let s:DARK_GREEN    = "#5F9C6F"
+    let s:GRAY_GREEN    = "#618E6D"
+    let s:LIGHT_BLUE    = "#81A2BE"
+    let s:DARK_BLUE     = "#5F819D"
+    let s:STEEL_BLUE    = "#B0C4DE"
+    let s:DARK_VIOLET   = "#85678F"
+    let s:LIGHT_VIOLET  = "#B294BB"
+    let s:LIGHT_AQUA    = "#8ABEB7"
+    let s:DARK_AQUA     = "#5E8D87"
 endif
+
+" CONST
+let s:FOREGROUND    = s:WHITE
+let s:BACKGROUND    = s:DARK_GRAY
+let s:COMMENT       = s:DARK_GREEN
 
 " ------------------------------
 " ADDITIONAL SYNTAX RULES
@@ -236,6 +262,7 @@ exe "hi MatchParen      guifg=".s:STEEL_BLUE."      guibg=".s:BLACK."           
 exe "hi Special         guifg=".s:YELLOW                              
 exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                   gui=bold"
 exe "hi SpecialComment  guifg=".s:COMMENT."                                     gui=bold,italic"
+exe "hi SpecialKey      guifg=".s:LIGHT_GREEN
 exe "hi Tag             guifg=".s:YELLOW
 hi link Braces          Delimiter
 " ------------------------------
