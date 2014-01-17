@@ -200,127 +200,242 @@ syn match JRef      display '[.]'
 " ------------------------------
 " ASSIGN COLORS
 " ------------------------------
-"
-"       CLASS               FOREGROUND                  BACKGROUND              ADDITIONAL
-" --------------------------------------------------------------------------------------------
-"
-" --- WORKSPACE ----------------
-exe "hi Cursor          guifg=".s:BLACK."           guibg=".s:WHITE."           gui=bold"
-exe "hi LineNr          guifg=".s:GRAY."            guibg=".s:BACKGROUND
-exe "hi NonText         guifg=".s:BACKGROUND
-exe "hi Normal          guifg=".s:FOREGROUND."      guibg=".s:BACKGROUND
-exe "hi Visual          guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND."      gui=none"
-exe "hi VisualNOS       guifg=".s:BACKGROUND."      guibg=".s:FOREGROUND."      gui=none"
-" ------------------------------
-"
-" --- COMMENT ------------------
-exe "hi Comment         guifg=".s:COMMENT."                                     gui=italic"
-" ------------------------------
-"
-" --- VARIABLE TYPES -----------
-exe "hi Boolean         guifg=".s:LIGHT_RED
-exe "hi Character       guifg=".s:LIGHT_RED."                                   gui=bold"
-exe "hi Constant        guifg=".s:LIGHT_BLUE."                                  gui=bold"
-exe "hi Float           guifg=".s:DARK_BLUE
-exe "hi Number          guifg=".s:DARK_BLUE
-exe "hi String          guifg=".s:LIGHT_RED
-" ------------------------------
-"
-" --- IDENTIFIER ---------------
-exe "hi Function        guifg=".s:YELLOW  
-exe "hi Identifier      guifg=".s:CREAM
-" ------------------------------
-"
-" --- STATEMENT ----------------
-exe "hi Conditional     guifg=".s:ORANGE."                                      gui=bold"
-exe "hi Statement       guifg=".s:YELLOW."                                      gui=none"
-exe "hi Repeat          guifg=".s:ORANGE."                                      gui=bold"
-exe "hi Label           guifg=".s:YELLOW."                                      gui=underline"
-exe "hi Operator        guifg=".s:YELLOW
-exe "hi Keyword         guifg=".s:YELLOW    
-exe "hi Exception       guifg=".s:YELLOW."                                      gui=bold"
-"-------------------------------
-"
-" --- PREPROC ------------------
-exe "hi PreCondit       guifg=".s:LIGHT_VIOLET."                                gui=bold"
-exe "hi PreProc         guifg=".s:LIGHT_VIOLET."                                gui=bold"
-exe "hi Include         guifg=".s:LIGHT_VIOLET
-exe "hi Define          guifg=".s:LIGHT_VIOLET."                                gui=bold"
-exe "hi Macro           guifg=".s:LIGHT_VIOLET."                                gui=bold"
-" ------------------------------
-"
-" --- TYPE ---------------------
-exe "hi Type            guifg=".s:LIGHT_AQUA."                                  gui=bold"
-exe "hi Typedef         guifg=".s:LIGHT_AQUA."                                  gui=bold"
-exe "hi StorageClass    guifg=".s:DARK_AQUA."                                   gui=bold"
-exe "hi Structure       guifg=".s:DARK_AQUA."                                   gui=bold"
-" ------------------------------
-"
-" --- SPECIAL ------------------
-exe "hi Debug           guifg=".s:LIGHT_GREEN."                                 gui=underline"
-exe "hi Delimiter       guifg=".s:LIGHT_GRAY
-exe "hi MatchParen      guifg=".s:STEEL_BLUE."      guibg=".s:BLACK."           gui=bold"
-exe "hi Special         guifg=".s:YELLOW                              
-exe "hi SpecialChar     guifg=".s:LIGHT_RED."                                   gui=bold"
-exe "hi SpecialComment  guifg=".s:COMMENT."                                     gui=bold,italic"
-exe "hi SpecialKey      guifg=".s:LIGHT_GREEN
-exe "hi Tag             guifg=".s:YELLOW
-hi link Braces          Delimiter
-" ------------------------------
-"
-" --- SPELLING -----------------
-exe "hi SpellBad        guifg=".s:WHITE."           guibg=".s:DARK_RED."        gui=underline"
-exe "hi SpellCap        guifg=".s:WHITE."           guibg=".s:DARK_RED."        gui=bold,underline"
-" ------------------------------
-"
-" --- DIFF ---------------------
-exe "hi DiffAdd         guifg=".s:BLACK."           guibg=".s:LIGHT_GREEN
-exe "hi DiffChange      guifg=".s:BLACK."           guibg=".s:YELLOW
-exe "hi DiffDelete      guifg=".s:BLACK."           guibg=".s:LIGHT_RED
-" difftext
 
-" ------------------------------
-"
-" --- UNDERLINED ---------------
-exe "hi Underlined      guifg=".s:LIGHT_BLUE."                                  gui=underline"
-" ------------------------------
-"
-" --- ERROR --------------------
-exe "hi ErrorMsg        guifg=".s:WHITE."           guibg=".s:DARK_RED."        gui=bold"
-" ------------------------------
-"
-" --- HTML SPECIFIC ------------
-exe "hi htmlTag         guifg=".s:LIGHT_GRAY
-exe "hi htmlTagName     guifg=".s:YELLOW
-exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
-exe "hi htmlSpecialTagName  guifg=".s:YELLOW
-" ------------------------------
-"
-" --- PHP SPECIFIC -------------
-hi link phpDefine       TypeDef
-hi link phpFunctions    Function
-hi link phpMemberSelector   Operator
-hi link phpMethods      Function
-hi link phpOperator     Operator
-hi link phpRelation     Operator
-hi link phpVarSelector  Identifier
-" ------------------------------
-"
-" --- JAVA SPECIFIC ------------
-hi link JRef            Operator
-" ------------------------------
+if has('gui_running')
+    " Settings for gVim
+    "
+    "       CLASS               FOREGROUND                  BACKGROUND              ADDITIONAL
+    " --------------------------------------------------------------------------------------------
+    "
+    " --- WORKSPACE ----------------
+    exe "hi Cursor          guifg=".s:BLACK."       guibg=".s:WHITE."       gui=bold"
+    exe "hi LineNr          guifg=".s:GRAY."        guibg=".s:BACKGROUND
+    exe "hi NonText         guifg=".s:BACKGROUND
+    exe "hi Normal          guifg=".s:FOREGROUND."  guibg=".s:BACKGROUND
+    exe "hi Visual          guifg=".s:BACKGROUND."  guibg=".s:FOREGROUND."  gui=none"
+    exe "hi VisualNOS       guifg=".s:BACKGROUND."  guibg=".s:FOREGROUND."  gui=none"
+    " ------------------------------
+    "
+    " --- COMMENT ------------------
+    exe "hi Comment         guifg=".s:COMMENT."                             gui=italic"
+    " ------------------------------
+    "
+    " --- VARIABLE TYPES -----------
+    exe "hi Boolean         guifg=".s:LIGHT_RED
+    exe "hi Character       guifg=".s:LIGHT_RED."                           gui=bold"
+    exe "hi Constant        guifg=".s:LIGHT_BLUE."                          gui=bold"
+    exe "hi Float           guifg=".s:DARK_BLUE
+    exe "hi Number          guifg=".s:DARK_BLUE
+    exe "hi String          guifg=".s:LIGHT_RED
+    " ------------------------------
+    "
+    " --- IDENTIFIER ---------------
+    exe "hi Function        guifg=".s:YELLOW  
+    exe "hi Identifier      guifg=".s:CREAM
+    " ------------------------------
+    "
+    " --- STATEMENT ----------------
+    exe "hi Conditional     guifg=".s:ORANGE."                              gui=bold"
+    exe "hi Statement       guifg=".s:YELLOW."                              gui=none"
+    exe "hi Repeat          guifg=".s:ORANGE."                              gui=bold"
+    exe "hi Label           guifg=".s:YELLOW."                              gui=underline"
+    exe "hi Operator        guifg=".s:YELLOW
+    exe "hi Keyword         guifg=".s:YELLOW    
+    exe "hi Exception       guifg=".s:YELLOW."                              gui=bold"
+    "-------------------------------
+    "
+    " --- PREPROC ------------------
+    exe "hi PreCondit       guifg=".s:LIGHT_VIOLET."                        gui=bold"
+    exe "hi PreProc         guifg=".s:LIGHT_VIOLET."                        gui=bold"
+    exe "hi Include         guifg=".s:LIGHT_VIOLET
+    exe "hi Define          guifg=".s:LIGHT_VIOLET."                        gui=bold"
+    exe "hi Macro           guifg=".s:LIGHT_VIOLET."                        gui=bold"
+    " ------------------------------
+    "
+    " --- TYPE ---------------------
+    exe "hi Type            guifg=".s:LIGHT_AQUA."                          gui=bold"
+    exe "hi Typedef         guifg=".s:LIGHT_AQUA."                          gui=bold"
+    exe "hi StorageClass    guifg=".s:DARK_AQUA."                           gui=bold"
+    exe "hi Structure       guifg=".s:DARK_AQUA."                           gui=bold"
+    " ------------------------------
+    "
+    " --- SPECIAL ------------------
+    exe "hi Debug           guifg=".s:LIGHT_GREEN."                         gui=underline"
+    exe "hi Delimiter       guifg=".s:LIGHT_GRAY
+    exe "hi MatchParen      guifg=".s:STEEL_BLUE."  guibg=".s:BLACK."       gui=bold"
+    exe "hi Special         guifg=".s:YELLOW                              
+    exe "hi SpecialChar     guifg=".s:LIGHT_RED."                           gui=bold"
+    exe "hi SpecialComment  guifg=".s:COMMENT."                             gui=bold,italic"
+    exe "hi SpecialKey      guifg=".s:LIGHT_GREEN
+    exe "hi Tag             guifg=".s:YELLOW
+    hi link Braces          Delimiter
+    " ------------------------------
+    "
+    " --- SPELLING -----------------
+    exe "hi SpellBad        guifg=".s:WHITE."       guibg=".s:DARK_RED."    gui=underline"
+    exe "hi SpellCap        guifg=".s:WHITE."       guibg=".s:DARK_RED."    gui=bold,underline"
+    " ------------------------------
+    "
+    " --- DIFF ---------------------
+    exe "hi DiffAdd         guifg=".s:BLACK."       guibg=".s:LIGHT_GREEN
+    exe "hi DiffChange      guifg=".s:BLACK."       guibg=".s:YELLOW
+    exe "hi DiffDelete      guifg=".s:BLACK."       guibg=".s:LIGHT_RED
+    " difftext
 
-" TODO UNKOWN
-exe "hi Title           guifg=".s:WHITE."                                       gui=bold"
+    " ------------------------------
+    "
+    " --- UNDERLINED ---------------
+    exe "hi Underlined      guifg=".s:LIGHT_BLUE."                          gui=underline"
+    " ------------------------------
+    "
+    " --- ERROR --------------------
+    exe "hi ErrorMsg        guifg=".s:WHITE."       guibg=".s:DARK_RED."    gui=bold"
+    " ------------------------------
+    "
+    " --- HTML SPECIFIC ------------
+    exe "hi htmlTag         guifg=".s:LIGHT_GRAY
+    exe "hi htmlTagName     guifg=".s:YELLOW
+    exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
+    exe "hi htmlSpecialTagName  guifg=".s:YELLOW
+    " ------------------------------
+    "
+    " --- PHP SPECIFIC -------------
+    hi link phpDefine       TypeDef
+    hi link phpFunctions    Function
+    hi link phpMemberSelector   Operator
+    hi link phpMethods      Function
+    hi link phpOperator     Operator
+    hi link phpRelation     Operator
+    hi link phpVarSelector  Identifier
+    " ------------------------------
+    "
+    " --- JAVA SPECIFIC ------------
+    hi link JRef            Operator
+    " ------------------------------
 
-" directory
-" incsearch
-" folded column
-" folded
+    " TODO UNKOWN
+    exe "hi Title           guifg=".s:WHITE."                               gui=bold"
 
-" modemsg
-" moremsg
+    " directory
+    " incsearch
+    " folded column
+    " folded
 
-"Missing many more
+    " modemsg
+    " moremsg
 
+    "Missing many more
+else 
+    " Settings for terminal Vim
+    "       CLASS               FOREGROUND                  BACKGROUND              ADDITIONAL
+    " --------------------------------------------------------------------------------------------
+    "
+    " --- WORKSPACE ----------------
+    exe "hi Cursor          ctermfg=".s:BLACK."     ctermbg=".s:WHITE."     cterm=bold"
+    exe "hi LineNr          ctermfg=".s:GRAY."      ctermbg=".s:BACKGROUND
+    exe "hi NonText         ctermfg=".s:BACKGROUND
+    exe "hi Normal          ctermfg=".s:FOREGROUND."ctermbg=".s:BACKGROUND
+    exe "hi Visual          ctermfg=".s:BACKGROUND."ctermbg=".s:FOREGROUND."cterm=none"
+    exe "hi VisualNOS       ctermfg=".s:BACKGROUND."ctermbg=".s:FOREGROUND."cterm=none"
+    " ------------------------------
+    "
+    " --- COMMENT ------------------
+    exe "hi Comment         ctermfg=".s:COMMENT
+    " ------------------------------
+    "
+    " --- VARIABLE TYPES -----------
+    exe "hi Boolean         ctermfg=".s:LIGHT_RED
+    exe "hi Character       ctermfg=".s:LIGHT_RED."                         cterm=bold"
+    exe "hi Constant        ctermfg=".s:LIGHT_BLUE."                        cterm=bold"
+    exe "hi Float           ctermfg=".s:DARK_BLUE
+    exe "hi Number          ctermfg=".s:DARK_BLUE
+    exe "hi String          ctermfg=".s:LIGHT_RED
+    " ------------------------------
+    "
+    " --- IDENTIFIER ---------------
+    exe "hi Function        ctermfg=".s:YELLOW  
+    exe "hi Identifier      ctermfg=".s:CREAM
+    " ------------------------------
+    "
+    " --- STATEMENT ----------------
+    exe "hi Conditional     ctermfg=".s:ORANGE."                            cterm=bold"
+    exe "hi Statement       ctermfg=".s:YELLOW."                            cterm=none"
+    exe "hi Repeat          ctermfg=".s:ORANGE."                            cterm=bold"
+    exe "hi Label           ctermfg=".s:YELLOW."                            gui=underline"
+    exe "hi Operator        ctermfg=".s:YELLOW
+    exe "hi Keyword         ctermfg=".s:YELLOW    
+    exe "hi Exception       ctermfg=".s:YELLOW."                            cterm=bold"
+    "-------------------------------
+    "
+    " --- PREPROC ------------------
+    exe "hi PreCondit       ctermfg=".s:LIGHT_VIOLET."                      cterm=bold"
+    exe "hi PreProc         ctermfg=".s:LIGHT_VIOLET."                      cterm=bold"
+    exe "hi Include         ctermfg=".s:LIGHT_VIOLET
+    exe "hi Define          ctermfg=".s:LIGHT_VIOLET."                      cterm=bold"
+    exe "hi Macro           ctermfg=".s:LIGHT_VIOLET."                      cterm=bold"
+    " ------------------------------
+    "
+    " --- TYPE ---------------------
+    exe "hi Type            ctermfg=".s:LIGHT_AQUA."                        cterm=bold"
+    exe "hi Typedef         ctermfg=".s:LIGHT_AQUA."                        cterm=bold"
+    exe "hi StorageClass    ctermfg=".s:DARK_AQUA."                         cterm=bold"
+    exe "hi Structure       ctermfg=".s:DARK_AQUA."                         cterm=bold"
+    " ------------------------------
+    "
+    " --- SPECIAL ------------------
+    exe "hi Debug           ctermfg=".s:LIGHT_GREEN."                       cterm=underline"
+    exe "hi Delimiter       ctermfg=".s:LIGHT_GRAY
+    exe "hi MatchParen      ctermfg=".s:STEEL_BLUE."ctermbg=".s:BLACK."     cterm=bold"
+    exe "hi Special         ctermfg=".s:YELLOW                              
+    exe "hi SpecialChar     ctermfg=".s:LIGHT_RED."                         cterm=bold"
+    exe "hi SpecialComment  ctermfg=".s:COMMENT."                           cterm=bold,italic"
+    exe "hi SpecialKey      ctermfg=".s:LIGHT_GREEN
+    exe "hi Tag             ctermfg=".s:YELLOW
+    hi link Braces          Delimiter
+    " ------------------------------
+    "
+    " --- SPELLING -----------------
+    exe "hi SpellBad        ctermfg=".s:WHITE."     ctermbg=".s:DARK_RED."  cterm=underline"
+    exe "hi SpellCap        ctermfg=".s:WHITE."     ctermbg=".s:DARK_RED."  cterm=bold,underline"
+    " ------------------------------
+    "
+    " --- DIFF ---------------------
+    exe "hi DiffAdd         ctermfg=".s:BLACK."     ctermbg=".s:LIGHT_GREEN
+    exe "hi DiffChange      ctermfg=".s:BLACK."     ctermbg=".s:YELLOW
+    exe "hi DiffDelete      ctermfg=".s:BLACK."     ctermbg=".s:LIGHT_RED
+    " difftext
 
+    " ------------------------------
+    "
+    " --- UNDERLINED ---------------
+    exe "hi Underlined      ctermfg=".s:LIGHT_BLUE."                        cterm=underline"
+    " ------------------------------
+    "
+    " --- ERROR --------------------
+    exe "hi ErrorMsg        ctermfg=".s:WHITE."     ctermbg=".s:DARK_RED."  cterm=bold"
+    " ------------------------------
+    "
+    " --- HTML SPECIFIC ------------
+    exe "hi htmlTag         ctermfg=".s:LIGHT_GRAY
+    exe "hi htmlTagName     ctermfg=".s:YELLOW
+    exe "hi htmlEndTag      ctermfg=".s:LIGHT_GRAY
+    exe "hi htmlSpecialTagName  ctermfg=".s:YELLOW
+    " ------------------------------
+    "
+    " --- PHP SPECIFIC -------------
+    hi link phpDefine       TypeDef
+    hi link phpFunctions    Function
+    hi link phpMemberSelector   Operator
+    hi link phpMethods      Function
+    hi link phpOperator     Operator
+    hi link phpRelation     Operator
+    hi link phpVarSelector  Identifier
+    " ------------------------------
+    "
+    " --- JAVA SPECIFIC ------------
+    hi link JRef            Operator
+    " ------------------------------
+
+    " TODO UNKOWN
+    exe "hi Title           ctermfg=".s:WHITE."                             cterm=bold"
+endif
