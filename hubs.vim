@@ -158,29 +158,30 @@ if has('gui_running')
     let s:DARK_AQUA     = "#5E8D87"
 else 
     " FOR TERMINAL VIM
+    " This uses the translateColor.py script
     let s:v_mode        = "terminal"
 
     " COLORS
     let s:WHITE         = "251"
-    let s:CREAM         = "#DFCFAF"
-    let s:LIGHT_GRAY    = "243"
+    let s:CREAM         = "187"
+    let s:LIGHT_GRAY    = "102"
     let s:GRAY          = "241"
     let s:DARK_GRAY     = "235"
     let s:BLACK         = "234"
-    let s:LIGHT_RED     = "#CC6666"
-    let s:DARK_RED      = "#A54242"
-    let s:ORANGE        = "#DE935F"
-    let s:YELLOW        = "#F0C674"
-    let s:LIGHT_GREEN   = "#96D6A6"
-    let s:DARK_GREEN    = "#5F9C6F"
-    let s:GRAY_GREEN    = "#618E6D"
-    let s:LIGHT_BLUE    = "#81A2BE"
-    let s:DARK_BLUE     = "#5F819D"
-    let s:STEEL_BLUE    = "#B0C4DE"
-    let s:DARK_VIOLET   = "#85678F"
-    let s:LIGHT_VIOLET  = "#B294BB"
-    let s:LIGHT_AQUA    = "#8ABEB7"
-    let s:DARK_AQUA     = "#5E8D87"
+    let s:LIGHT_RED     = "167"
+    let s:DARK_RED      = "131"
+    let s:ORANGE        = "173"
+    let s:YELLOW        = "222"
+    let s:LIGHT_GREEN   = "115"
+    let s:DARK_GREEN    = "71"
+    let s:GRAY_GREEN    = "65"
+    let s:LIGHT_BLUE    = "109"
+    let s:DARK_BLUE     = "67"
+    let s:STEEL_BLUE    = "152"
+    let s:DARK_VIOLET   = "96"
+    let s:LIGHT_VIOLET  = "139"
+    let s:LIGHT_AQUA    = "109"
+    let s:DARK_AQUA     = "66"
 endif
 
 " CONST
