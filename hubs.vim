@@ -117,7 +117,15 @@
 " When using the Ignore group, you may also consider using the conceal
 " mechanism.  See |conceal|.
 " -----------------------------------------------------------------------------------
-"
+
+" ------------------------------
+" GLOBALS
+" ------------------------------
+if !exists("g:hubs_NoBold")
+    let g:hubs_NoBold=0
+endif
+
+
 set background=dark
 
 hi clear
