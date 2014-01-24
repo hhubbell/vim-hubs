@@ -2,14 +2,17 @@
 
 import sys, csv, math
 
-# --------------------
+# Harry Hubbell
+# 1/15/14
+#
+# translateColor.py: 
 # Convert hex values in a vim colorscheme to rgb 
 # for terminal vim
-#--------------------
 
-# ----------
+
+# --------------------
 # ADDITIONAL FUNCTIONS
-# ----------
+# --------------------
 def findNearest(rgb, library):
     # find nearest value in color list
     distance = []
@@ -77,7 +80,6 @@ term_colors = [
 
 
 # convert hex to rgb
-i = 0
 for color in term_colors:
     r = int(color[0][0:2], 16)
     g = int(color[0][2:4], 16)
@@ -124,10 +126,11 @@ with open(filename, 'r') as csvfile:
         closestColorI = findNearest(rgb, converted_colors) 
         #print closestColor
 
-        # ----------
+        # --------------------
         # THE PAYOFF
-        # ----------
+        # --------------------
         t_co = term_colors[closestColorI][1]
-        print "%s -> %d" %(row[0], t_co)
+        print "%15s -> %3d" %(row[0], t_co)
+
 # close file
 csvfile.close()
