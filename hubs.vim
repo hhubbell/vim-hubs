@@ -115,6 +115,32 @@
 "							*hl-Ignore*
 " When using the Ignore group, you may also consider using the conceal
 " mechanism.  See |conceal|.
+"
+" -----------------------------------------------------------------------------------
+" ADDITIONAL DOCUMENTATION
+" -----------------------------------------------------------------------------------
+" g:hubs_NoBold:
+"   ABOUT:
+"       An option that can be implemented if the selected font is too small or
+"       does not render bold fonts well.  The following fonts are normally bold:
+"       
+"           Cursor              Character           Constant            
+"           Conditional         Repeat              Exception                 
+"           PreCondit           PreProc             Define              
+"           Macro               Type                TypeDef
+"           StorageClass        Structure           MatchParen          
+"           SpecialChar         SpecialComment      SpellCap        
+"           Title
+"
+"       Reference the above VIM DOCS to see what these syntax groups highlight
+"
+"   TO USE:
+"       Add the following line to your .vimrc file, before your colorcheme
+"       declaration.  This is important! The option will not work if it is set
+"       after.
+"           
+"           let g:hubs_NoBold=1
+"
 " -----------------------------------------------------------------------------------
 
 " ------------------------------
