@@ -494,6 +494,7 @@ endif
 " --- GENERAL ------------------
 hi link Braces          Delimiter
 hi link Ref             Operator
+
 " --- PHP SPECIFIC -------------
 hi link phpDefine       TypeDef
 hi link phpFunctions    Function
@@ -502,3 +503,9 @@ hi link phpMethods      Function
 hi link phpOperator     Operator
 hi link phpRelation     Operator
 hi link phpVarSelector  Identifier
+
+" --- CSS SPECIFIC -------------
+hi link cssBraces       Braces
+hi link cssClassName    Identifier
+hi link cssIdentifier   Identifier
+
