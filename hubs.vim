@@ -506,6 +506,6 @@ hi link phpVarSelector  Identifier
 
 " --- CSS SPECIFIC -------------
 hi link cssBraces       Braces
-hi link cssClassName    Identifier
-hi link cssIdentifier   Identifier
+"hi link cssClassName    Identifier
+"hi link cssIdentifier   Identifier
 
