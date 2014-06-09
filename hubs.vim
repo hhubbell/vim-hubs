@@ -161,7 +161,6 @@ endif
 
 let g:colors_name="hubs"
 
-hi link cssClassName    Identifier
 " ------------------------------
 " DEFINITIONS
 " ------------------------------
@@ -323,7 +322,6 @@ if has('gui_running')
     exe "hi htmlTagName     guifg=".s:YELLOW
     exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
     exe "hi htmlSpecialTagName  guifg=".s:YELLOW
-    exe "hi cssIdentifier   guifg=".s:ORANGE
     " ------------------------------
 
     " TODO UNKOWN
