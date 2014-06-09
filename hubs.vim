@@ -161,6 +161,7 @@ endif
 
 let g:colors_name="hubs"
 
+hi link cssClassName    Identifier
 " ------------------------------
 " DEFINITIONS
 " ------------------------------
@@ -322,6 +323,7 @@ if has('gui_running')
     exe "hi htmlTagName     guifg=".s:YELLOW
     exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
     exe "hi htmlSpecialTagName  guifg=".s:YELLOW
+    exe "hi cssIdentifier   guifg=".s:ORANGE
     " ------------------------------
 
     " TODO UNKOWN
@@ -489,7 +491,7 @@ else
 endif
 
 " ----------------------------------------
-" LINK SOME THINGS
+" TARGET SPECIFIC LANGUAGES
 " ----------------------------------------
 " --- GENERAL ------------------
 hi link Braces          Delimiter
@@ -506,6 +508,8 @@ hi link phpVarSelector  Identifier
 
 " --- CSS SPECIFIC -------------
 hi link cssBraces       Braces
-"hi link cssClassName    Identifier
-"hi link cssIdentifier   Identifier
+"hi link cssClassName    Conditional
+"hi link cssIdentifier   Conditional
 
+" --- PYTHON SPECIFIC ----------
+hi link pythonEscape    SpecialChar
