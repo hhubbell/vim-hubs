@@ -186,6 +186,12 @@ if has('gui_running')
     let s:LIGHT_VIOLET  = "#B294BB"
     let s:LIGHT_AQUA    = "#8ABEB7"
     let s:DARK_AQUA     = "#5E8D87"
+
+    " CONTEXT
+    let s:CTX_FG        = "guifg"
+    let s:CTX_BG        = "guibg"
+    let s:CTX_DEC       = "gui"
+    let s:CTX_COM       = "gui=italic"
 else 
     " FOR TERMINAL VIM
     " This uses the translateColor.py script
@@ -210,9 +216,14 @@ else
     let s:LIGHT_VIOLET  = "139"
     let s:LIGHT_AQUA    = "109"
     let s:DARK_AQUA     = "66"
+
+    " CONTEXT
+    let s:CTX_FG        = "ctermfg"
+    let s:CTX_BG        = "ctermbg"
+    let s:CTX_DEC       = "cterm"
+    let s:CTX_COM       = ""
 endif
 
-" CONST
 let s:FOREGROUND    = s:WHITE
 let s:BACKGROUND    = s:DARK_GRAY
 let s:COMMENT       = s:DARK_GREEN
@@ -227,265 +238,137 @@ syn match Ref       display '[.]'
 " ------------------------------
 " ASSIGN COLORS
 " ------------------------------
-if has('gui_running')
-    " Settings for gVim
-    "
-    "   CLASS               FOREGROUND              BACKGROUND              ADDITIONAL
-    " --------------------------------------------------------------------------------------------
-    "
-    " --- WORKSPACE ----------------
-    exe "hi Cursor          guifg=".s:BLACK."       guibg=".s:WHITE
-    exe "hi LineNr          guifg=".s:GRAY."        guibg=".s:BACKGROUND
-    exe "hi NonText         guifg=".s:BACKGROUND
-    exe "hi Normal          guifg=".s:FOREGROUND."  guibg=".s:BACKGROUND
-    exe "hi Visual          guifg=".s:BACKGROUND."  guibg=".s:FOREGROUND."  gui=none"
-    exe "hi VisualNOS       guifg=".s:BACKGROUND."  guibg=".s:FOREGROUND."  gui=none"
-    " ------------------------------
-    "
-    " --- COMMENT ------------------
-    exe "hi Comment         guifg=".s:COMMENT."                             gui=italic"
-    " ------------------------------
-    "
-    " --- VARIABLE TYPES -----------
-    exe "hi Boolean         guifg=".s:LIGHT_RED
-    exe "hi Character       guifg=".s:LIGHT_RED
-    exe "hi Constant        guifg=".s:LIGHT_BLUE
-    exe "hi Float           guifg=".s:DARK_BLUE
-    exe "hi Number          guifg=".s:DARK_BLUE
-    exe "hi String          guifg=".s:LIGHT_RED
-    " ------------------------------
-    "
-    " --- IDENTIFIER ---------------
-    exe "hi Function        guifg=".s:YELLOW  
-    exe "hi Identifier      guifg=".s:CREAM
-    " ------------------------------
-    "
-    " --- STATEMENT ----------------
-    exe "hi Conditional     guifg=".s:ORANGE
-    exe "hi Statement       guifg=".s:YELLOW."                              gui=none"
-    exe "hi Repeat          guifg=".s:ORANGE
-    exe "hi Label           guifg=".s:YELLOW."                              gui=underline"
-    exe "hi Operator        guifg=".s:YELLOW
-    exe "hi Keyword         guifg=".s:YELLOW    
-    exe "hi Exception       guifg=".s:YELLOW
-    "-------------------------------
-    "
-    " --- PREPROC ------------------
-    exe "hi PreCondit       guifg=".s:LIGHT_VIOLET
-    exe "hi PreProc         guifg=".s:LIGHT_VIOLET
-    exe "hi Include         guifg=".s:LIGHT_VIOLET
-    exe "hi Define          guifg=".s:LIGHT_VIOLET
-    exe "hi Macro           guifg=".s:LIGHT_VIOLET
-    " ------------------------------
-    "
-    " --- TYPE ---------------------
-    exe "hi Type            guifg=".s:LIGHT_AQUA."                          gui=none"
-    exe "hi Typedef         guifg=".s:LIGHT_AQUA
-    exe "hi StorageClass    guifg=".s:DARK_AQUA
-    exe "hi Structure       guifg=".s:DARK_AQUA
-    " ------------------------------
-    "
-    " --- SPECIAL ------------------
-    exe "hi Debug           guifg=".s:LIGHT_GREEN."                         gui=underline"
-    exe "hi Delimiter       guifg=".s:LIGHT_GRAY
-    exe "hi MatchParen      guifg=".s:STEEL_BLUE."  guibg=".s:BLACK
-    exe "hi Special         guifg=".s:YELLOW                              
-    exe "hi SpecialChar     guifg=".s:LIGHT_RED
-    exe "hi SpecialComment  guifg=".s:COMMENT."                             gui=italic"
-    exe "hi SpecialKey      guifg=".s:LIGHT_GREEN
-    exe "hi Tag             guifg=".s:YELLOW
-    " ------------------------------
-    "
-    " --- SPELLING -----------------
-    exe "hi SpellBad        guifg=".s:WHITE."       guibg=".s:DARK_RED."    gui=underline"
-    exe "hi SpellCap        guifg=".s:WHITE."       guibg=".s:DARK_RED."    gui=underline"
-    " ------------------------------
-    "
-    " --- DIFF ---------------------
-    exe "hi DiffAdd         guifg=".s:BLACK."       guibg=".s:LIGHT_GREEN
-    exe "hi DiffChange      guifg=".s:BLACK."       guibg=".s:YELLOW
-    exe "hi DiffDelete      guifg=".s:BLACK."       guibg=".s:LIGHT_RED
-    " difftext
+"
+" CLASS                 FOREGROUND                      BACKGROUND                      ADDITIONAL
+" ------------------------------------------------------------------------------------------------
+"
+" --- WORKSPACE ----------------
+exe "hi Cursor          ".s:CTX_FG."=".s:BLACK."        ".s:CTX_BG."=".s:WHITE
+exe "hi LineNr          ".s:CTX_FG."=".s:GRAY."         ".s:CTX_BG."=".s:BACKGROUND
+exe "hi NonText         ".s:CTX_FG."=".s:BACKGROUND
+exe "hi Normal          ".s:CTX_FG."=".s:FOREGROUND."   ".s:CTX_BG."=".s:BACKGROUND
+exe "hi Visual          ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGROUND."   ".s:CTX_DEC."=none"
+exe "hi VisualNOS       ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGROUND."   ".s:CTX_DEC."=none"
+" ------------------------------
 
-    " ------------------------------
-    "
-    " --- UNDERLINED ---------------
-    exe "hi Underlined      guifg=".s:LIGHT_BLUE."                          gui=underline"
-    " ------------------------------
-    "
-    " --- ERROR --------------------
-    exe "hi ErrorMsg        guifg=".s:WHITE."       guibg=".s:DARK_RED
-    " ------------------------------
-    "
-    " --- HTML SPECIFIC ------------
-    exe "hi htmlTag         guifg=".s:LIGHT_GRAY
-    exe "hi htmlTagName     guifg=".s:YELLOW
-    exe "hi htmlEndTag      guifg=".s:LIGHT_GRAY
-    exe "hi htmlSpecialTagName  guifg=".s:YELLOW
-    " ------------------------------
+" --- COMMENT ------------------
+exe "hi Comment         ".s:CTX_FG."=".s:COMMENT."                                      ".s:CTX_COM
+exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN      
+" ------------------------------
 
-    " TODO UNKOWN
-    exe "hi Title           guifg=".s:WHITE
+" --- VARIABLE TYPES -----------
+exe "hi Boolean         ".s:CTX_FG."=".s:LIGHT_RED
+exe "hi Character       ".s:CTX_FG."=".s:LIGHT_RED
+exe "hi Constant        ".s:CTX_FG."=".s:LIGHT_BLUE
+exe "hi Float           ".s:CTX_FG."=".s:DARK_BLUE
+exe "hi Number          ".s:CTX_FG."=".s:DARK_BLUE
+exe "hi String          ".s:CTX_FG."=".s:LIGHT_RED
+" ------------------------------
 
-    " directory
-    " incsearch
-    " folded column
-    " folded
+" --- IDENTIFIER ---------------
+exe "hi Function        ".s:CTX_FG."=".s:YELLOW  
+exe "hi Identifier      ".s:CTX_FG."=".s:CREAM
+" ------------------------------
 
-    " modemsg
-    " moremsg
+" --- STATEMENT ----------------
+exe "hi Conditional     ".s:CTX_FG."=".s:ORANGE
+exe "hi Statement       ".s:CTX_FG."=".s:YELLOW."                                       ".s:CTX_DEC."=none"
+exe "hi Repeat          ".s:CTX_FG."=".s:ORANGE
+exe "hi Label           ".s:CTX_FG."=".s:YELLOW."                                       ".s:CTX_DEC."=underline"
+exe "hi Operator        ".s:CTX_FG."=".s:YELLOW
+exe "hi Keyword         ".s:CTX_FG."=".s:YELLOW    
+exe "hi Exception       ".s:CTX_FG."=".s:YELLOW
+"-------------------------------
 
-    "Missing many more
+" --- PREPROC ------------------
+exe "hi PreCondit       ".s:CTX_FG."=".s:LIGHT_VIOLET
+exe "hi PreProc         ".s:CTX_FG."=".s:LIGHT_VIOLET
+exe "hi Include         ".s:CTX_FG."=".s:LIGHT_VIOLET
+exe "hi Define          ".s:CTX_FG."=".s:LIGHT_VIOLET
+exe "hi Macro           ".s:CTX_FG."=".s:LIGHT_VIOLET
+" ------------------------------
+
+" --- TYPE ---------------------
+exe "hi Type            ".s:CTX_FG."=".s:LIGHT_AQUA."                                   ".s:CTX_DEC."=none"
+exe "hi Typedef         ".s:CTX_FG."=".s:LIGHT_AQUA
+exe "hi StorageClass    ".s:CTX_FG."=".s:DARK_AQUA
+exe "hi Structure       ".s:CTX_FG."=".s:DARK_AQUA
+" ------------------------------
+
+" --- SPECIAL ------------------
+exe "hi Debug           ".s:CTX_FG."=".s:LIGHT_GREEN."                                  ".s:CTX_DEC."=underline"
+exe "hi Delimiter       ".s:CTX_FG."=".s:LIGHT_GRAY
+exe "hi MatchParen      ".s:CTX_FG."=".s:STEEL_BLUE."  ".s:CTX_BG."=".s:BLACK
+exe "hi Special         ".s:CTX_FG."=".s:YELLOW                              
+exe "hi SpecialChar     ".s:CTX_FG."=".s:LIGHT_RED
+exe "hi SpecialComment  ".s:CTX_FG."=".s:COMMENT."                                      ".s:CTX_DEC."=italic"
+exe "hi SpecialKey      ".s:CTX_FG."=".s:LIGHT_GREEN
+exe "hi Tag             ".s:CTX_FG."=".s:YELLOW
+" ------------------------------
+
+" --- SPELLING -----------------
+exe "hi SpellBad        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED."      ".s:CTX_DEC."=underline"
+exe "hi SpellCap        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED."      ".s:CTX_DEC."=underline"
+" ------------------------------
+
+" --- DIFF ---------------------
+exe "hi DiffAdd         ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:LIGHT_GREEN
+exe "hi DiffChange      ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:YELLOW
+exe "hi DiffDelete      ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:LIGHT_RED
+" difftext
+" ------------------------------
+
+" --- UNDERLINED ---------------
+exe "hi Underlined      ".s:CTX_FG."=".s:LIGHT_BLUE."                                   ".s:CTX_DEC."=underline"
+" ------------------------------
+
+" --- ERROR --------------------
+exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED
+" ------------------------------
+
+" --- HTML SPECIFIC ------------
+exe "hi htmlTag         ".s:CTX_FG."=".s:LIGHT_GRAY
+exe "hi htmlTagName     ".s:CTX_FG."=".s:YELLOW
+exe "hi htmlEndTag      ".s:CTX_FG."=".s:LIGHT_GRAY
+exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
+" ------------------------------
+
+" TODO UNKOWN
+exe "hi Title           guifg=".s:WHITE
+" directory
+" incsearch
+" folded column
+" folded
+" modemsg
+" moremsg
+"Missing many more
 
 
 
-    " ------------------------------
-    " SET BOLDS IF ALLOWED
-    " ------------------------------
-    if g:hubs_NoBold==0
-        hi Cursor       gui=bold
-        hi Character    gui=bold
-        hi Constant     gui=bold
-        hi Conditional  gui=bold
-        hi Repeat       gui=bold
-        hi Exception    gui=bold
-        hi PreCondit    gui=bold
-        hi PreProc      gui=bold
-        hi Define       gui=bold
-        hi Macro        gui=bold
-        hi Type         gui=bold
-        hi TypeDef      gui=bold
-        hi StorageClass gui=bold
-        hi Structure    gui=bold
-        hi MatchParen   gui=bold
-        hi SpecialChar  gui=bold
-        hi SpecialComment gui=bold
-        hi SpellCap     gui=bold
-        hi Title        gui=bold
-    endif
-else 
-    " Settings for terminal Vim
-    "   CLASS               FOREGROUND              BACKGROUND              ADDITIONAL
-    " --------------------------------------------------------------------------------------------
-    "
-    " --- WORKSPACE ----------------
-    exe "hi Cursor          ctermfg=".s:BLACK."     ctermbg=".s:WHITE
-    exe "hi LineNr          ctermfg=".s:GRAY."      ctermbg=".s:BACKGROUND
-    exe "hi NonText         ctermfg=".s:BACKGROUND
-    exe "hi Normal          ctermfg=".s:FOREGROUND."ctermbg=".s:BACKGROUND
-    exe "hi Visual          ctermfg=".s:BACKGROUND."ctermbg=".s:FOREGROUND."cterm=none"
-    exe "hi VisualNOS       ctermfg=".s:BACKGROUND."ctermbg=".s:FOREGROUND."cterm=none"
-    " ------------------------------
-    "
-    " --- COMMENT ------------------
-    exe "hi Comment         ctermfg=".s:COMMENT
-    " ------------------------------
-    "
-    " --- VARIABLE TYPES -----------
-    exe "hi Boolean         ctermfg=".s:LIGHT_RED
-    exe "hi Character       ctermfg=".s:LIGHT_RED
-    exe "hi Constant        ctermfg=".s:LIGHT_BLUE
-    exe "hi Float           ctermfg=".s:DARK_BLUE
-    exe "hi Number          ctermfg=".s:DARK_BLUE
-    exe "hi String          ctermfg=".s:LIGHT_RED
-    " ------------------------------
-    "
-    " --- IDENTIFIER ---------------
-    exe "hi Function        ctermfg=".s:YELLOW  
-    exe "hi Identifier      ctermfg=".s:CREAM
-    " ------------------------------
-    "
-    " --- STATEMENT ----------------
-    exe "hi Conditional     ctermfg=".s:ORANGE
-    exe "hi Statement       ctermfg=".s:YELLOW."                            cterm=none"
-    exe "hi Repeat          ctermfg=".s:ORANGE
-    exe "hi Label           ctermfg=".s:YELLOW."                            gui=underline"
-    exe "hi Operator        ctermfg=".s:YELLOW
-    exe "hi Keyword         ctermfg=".s:YELLOW    
-    exe "hi Exception       ctermfg=".s:YELLOW
-    "-------------------------------
-    "
-    " --- PREPROC ------------------
-    exe "hi PreCondit       ctermfg=".s:LIGHT_VIOLET
-    exe "hi PreProc         ctermfg=".s:LIGHT_VIOLET
-    exe "hi Include         ctermfg=".s:LIGHT_VIOLET
-    exe "hi Define          ctermfg=".s:LIGHT_VIOLET
-    exe "hi Macro           ctermfg=".s:LIGHT_VIOLET
-    " ------------------------------
-    "
-    " --- TYPE ---------------------
-    exe "hi Type            ctermfg=".s:LIGHT_AQUA
-    exe "hi Typedef         ctermfg=".s:LIGHT_AQUA
-    exe "hi StorageClass    ctermfg=".s:DARK_AQUA
-    exe "hi Structure       ctermfg=".s:DARK_AQUA
-    " ------------------------------
-    "
-    " --- SPECIAL ------------------
-    exe "hi Debug           ctermfg=".s:LIGHT_GREEN."                       cterm=underline"
-    exe "hi Delimiter       ctermfg=".s:LIGHT_GRAY
-    exe "hi MatchParen      ctermfg=".s:STEEL_BLUE."ctermbg=".s:BLACK
-    exe "hi Special         ctermfg=".s:YELLOW                              
-    exe "hi SpecialChar     ctermfg=".s:LIGHT_RED
-    exe "hi SpecialComment  ctermfg=".s:COMMENT."                           cterm=italic"
-    exe "hi SpecialKey      ctermfg=".s:LIGHT_GREEN
-    exe "hi Tag             ctermfg=".s:YELLOW
-    " ------------------------------
-    "
-    " --- SPELLING -----------------
-    exe "hi SpellBad        ctermfg=".s:WHITE."     ctermbg=".s:DARK_RED."  cterm=underline"
-    exe "hi SpellCap        ctermfg=".s:WHITE."     ctermbg=".s:DARK_RED."  cterm=underline"
-    " ------------------------------
-    "
-    " --- DIFF ---------------------
-    exe "hi DiffAdd         ctermfg=".s:BLACK."     ctermbg=".s:LIGHT_GREEN
-    exe "hi DiffChange      ctermfg=".s:BLACK."     ctermbg=".s:YELLOW
-    exe "hi DiffDelete      ctermfg=".s:BLACK."     ctermbg=".s:LIGHT_RED
-    " difftext
-
-    " ------------------------------
-    "
-    " --- UNDERLINED ---------------
-    exe "hi Underlined      ctermfg=".s:LIGHT_BLUE."                        cterm=underline"
-    " ------------------------------
-    "
-    " --- ERROR --------------------
-    exe "hi ErrorMsg        ctermfg=".s:WHITE."     ctermbg=".s:DARK_RED
-    " ------------------------------
-    "
-    " --- HTML SPECIFIC ------------
-    exe "hi htmlTag         ctermfg=".s:LIGHT_GRAY
-    exe "hi htmlTagName     ctermfg=".s:YELLOW
-    exe "hi htmlEndTag      ctermfg=".s:LIGHT_GRAY
-    exe "hi htmlSpecialTagName  ctermfg=".s:YELLOW
-    " ------------------------------
-    
-    " TODO UNKOWN
-    exe "hi Title           ctermfg=".s:WHITE
-
-    " ------------------------------
-    " SET BOLDS IF ALLOWED
-    " ------------------------------
-    if g:hubs_NoBold==0
-        hi Cursor       cterm=bold
-        hi Character    cterm=bold
-        hi Constant     cterm=bold
-        hi Conditional  cterm=bold
-        hi Repeat       cterm=bold
-        hi Exception    cterm=bold
-        hi PreCondit    cterm=bold
-        hi PreProc      cterm=bold
-        hi Define       cterm=bold
-        hi Macro        cterm=bold
-        hi Type         cterm=bold
-        hi TypeDef      cterm=bold
-        hi StorageClass cterm=bold
-        hi Structure    cterm=bold
-        hi MatchParen   cterm=bold
-        hi SpecialChar  cterm=bold
-        hi SpecialComment cterm=bold
-        hi SpellCap     cterm=bold
-        hi Title        cterm=bold
-    endif
+" ------------------------------
+" SET BOLDS IF ALLOWED
+" ------------------------------
+if g:hubs_NoBold==0
+    exe "hi Cursor       ".s:CTX_DEC."=bold"
+    exe "hi Character    ".s:CTX_DEC."=bold"
+    exe "hi Constant     ".s:CTX_DEC."=bold"
+    exe "hi Conditional  ".s:CTX_DEC."=bold"
+    exe "hi Repeat       ".s:CTX_DEC."=bold"
+    exe "hi Exception    ".s:CTX_DEC."=bold"
+    exe "hi PreCondit    ".s:CTX_DEC."=bold"
+    exe "hi PreProc      ".s:CTX_DEC."=bold"
+    exe "hi Define       ".s:CTX_DEC."=bold"
+    exe "hi Macro        ".s:CTX_DEC."=bold"
+    exe "hi Type         ".s:CTX_DEC."=bold"
+    exe "hi TypeDef      ".s:CTX_DEC."=bold"
+    exe "hi StorageClass ".s:CTX_DEC."=bold"
+    exe "hi Structure    ".s:CTX_DEC."=bold"
+    exe "hi MatchParen   ".s:CTX_DEC."=bold"
+    exe "hi SpecialChar  ".s:CTX_DEC."=bold"
+    exe "hi SpecialComment ".s:CTX_DEC."=bold"
+    exe "hi SpellCap     ".s:CTX_DEC."=bold"
+    exe "hi Title        ".s:CTX_DEC."=bold"
+    exe "hi Todo         ".s:CTX_DEC."=bold"
 endif
 
 " ----------------------------------------
