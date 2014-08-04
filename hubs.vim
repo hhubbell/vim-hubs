@@ -150,9 +150,7 @@ if ! exists("g:hubs_NoBold")
     let g:hubs_NoBold=0
 endif
 
-
 set background=dark
-
 hi clear
 
 if exists("syntax_on")
@@ -191,7 +189,7 @@ if has('gui_running')
     let s:CTX_FG        = "guifg"
     let s:CTX_BG        = "guibg"
     let s:CTX_DEC       = "gui"
-    let s:CTX_COM       = "gui=italic"
+
 else 
     " FOR TERMINAL VIM
     " This uses the translateColor.py script
@@ -221,40 +219,37 @@ else
     let s:CTX_FG        = "ctermfg"
     let s:CTX_BG        = "ctermbg"
     let s:CTX_DEC       = "cterm"
-    let s:CTX_COM       = ""
+
 endif
 
 let s:FOREGROUND    = s:WHITE
-let s:BACKGROUND    = s:DARK_GRAY
+let s:BACKGROUND    = s:BLACK
 let s:COMMENT       = s:DARK_GREEN
 
 " ------------------------------
 " ADDITIONAL SYNTAX RULES
 " ------------------------------
-" Some languages do not highlight braces, or operators
 syn match Braces    display '[{}()\[\]]'
 syn match Ref       display '[.]'
 
 " ------------------------------
 " ASSIGN COLORS
 " ------------------------------
-"
+
 " CLASS                 FOREGROUND                      BACKGROUND                      ADDITIONAL
 " ------------------------------------------------------------------------------------------------
-"
+
 " --- WORKSPACE ----------------
 exe "hi Cursor          ".s:CTX_FG."=".s:BLACK."        ".s:CTX_BG."=".s:WHITE
-exe "hi LineNr          ".s:CTX_FG."=".s:GRAY."         ".s:CTX_BG."=".s:BACKGROUND
+exe "hi LineNr          ".s:CTX_FG."=".s:GRAY."         ".s:CTX_BG."=".s:DARK_GRAY
 exe "hi NonText         ".s:CTX_FG."=".s:BACKGROUND
 exe "hi Normal          ".s:CTX_FG."=".s:FOREGROUND."   ".s:CTX_BG."=".s:BACKGROUND
 exe "hi Visual          ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGROUND."   ".s:CTX_DEC."=none"
 exe "hi VisualNOS       ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGROUND."   ".s:CTX_DEC."=none"
-" ------------------------------
 
 " --- COMMENT ------------------
-exe "hi Comment         ".s:CTX_FG."=".s:COMMENT."                                      ".s:CTX_COM
+exe "hi Comment         ".s:CTX_FG."=".s:COMMENT
 exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN      
-" ------------------------------
 
 " --- VARIABLE TYPES -----------
 exe "hi Boolean         ".s:CTX_FG."=".s:LIGHT_RED
@@ -263,12 +258,10 @@ exe "hi Constant        ".s:CTX_FG."=".s:LIGHT_BLUE
 exe "hi Float           ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi Number          ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi String          ".s:CTX_FG."=".s:LIGHT_RED
-" ------------------------------
 
 " --- IDENTIFIER ---------------
 exe "hi Function        ".s:CTX_FG."=".s:YELLOW  
 exe "hi Identifier      ".s:CTX_FG."=".s:CREAM
-" ------------------------------
 
 " --- STATEMENT ----------------
 exe "hi Conditional     ".s:CTX_FG."=".s:ORANGE
@@ -278,7 +271,6 @@ exe "hi Label           ".s:CTX_FG."=".s:YELLOW."                               
 exe "hi Operator        ".s:CTX_FG."=".s:YELLOW
 exe "hi Keyword         ".s:CTX_FG."=".s:YELLOW    
 exe "hi Exception       ".s:CTX_FG."=".s:YELLOW
-"-------------------------------
 
 " --- PREPROC ------------------
 exe "hi PreCondit       ".s:CTX_FG."=".s:LIGHT_VIOLET
@@ -286,30 +278,26 @@ exe "hi PreProc         ".s:CTX_FG."=".s:LIGHT_VIOLET
 exe "hi Include         ".s:CTX_FG."=".s:LIGHT_VIOLET
 exe "hi Define          ".s:CTX_FG."=".s:LIGHT_VIOLET
 exe "hi Macro           ".s:CTX_FG."=".s:LIGHT_VIOLET
-" ------------------------------
 
 " --- TYPE ---------------------
 exe "hi Type            ".s:CTX_FG."=".s:LIGHT_AQUA."                                   ".s:CTX_DEC."=none"
 exe "hi Typedef         ".s:CTX_FG."=".s:LIGHT_AQUA
 exe "hi StorageClass    ".s:CTX_FG."=".s:DARK_AQUA
 exe "hi Structure       ".s:CTX_FG."=".s:DARK_AQUA
-" ------------------------------
 
 " --- SPECIAL ------------------
 exe "hi Debug           ".s:CTX_FG."=".s:LIGHT_GREEN."                                  ".s:CTX_DEC."=underline"
 exe "hi Delimiter       ".s:CTX_FG."=".s:LIGHT_GRAY
-exe "hi MatchParen      ".s:CTX_FG."=".s:STEEL_BLUE."  ".s:CTX_BG."=".s:BLACK
+exe "hi MatchParen      ".s:CTX_FG."=".s:DARK_GRAY."  ".s:CTX_BG."=".s:STEEL_BLUE
 exe "hi Special         ".s:CTX_FG."=".s:YELLOW                              
 exe "hi SpecialChar     ".s:CTX_FG."=".s:LIGHT_RED
-exe "hi SpecialComment  ".s:CTX_FG."=".s:COMMENT."                                      ".s:CTX_DEC."=italic"
+exe "hi SpecialComment  ".s:CTX_FG."=".s:COMMENT
 exe "hi SpecialKey      ".s:CTX_FG."=".s:LIGHT_GREEN
 exe "hi Tag             ".s:CTX_FG."=".s:YELLOW
-" ------------------------------
 
 " --- SPELLING -----------------
 exe "hi SpellBad        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED."      ".s:CTX_DEC."=underline"
 exe "hi SpellCap        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED."      ".s:CTX_DEC."=underline"
-" ------------------------------
 
 " --- DIFF ---------------------
 exe "hi DiffAdd         ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:LIGHT_GREEN
@@ -320,22 +308,19 @@ exe "hi DiffDelete      ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:LIGHT_RE
 
 " --- UNDERLINED ---------------
 exe "hi Underlined      ".s:CTX_FG."=".s:LIGHT_BLUE."                                   ".s:CTX_DEC."=underline"
-" ------------------------------
 
 " --- ERROR --------------------
 exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED
-" ------------------------------
 
 " --- HTML SPECIFIC ------------
 exe "hi htmlTag         ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi htmlTagName     ".s:CTX_FG."=".s:YELLOW
 exe "hi htmlEndTag      ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
-" ------------------------------
 
 " TODO UNKOWN
-exe "hi Title           guifg=".s:WHITE
-" directory
+exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
+exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE."                                    ".s:CTX_DEC."=bold"
 " incsearch
 " folded column
 " folded
@@ -344,31 +329,30 @@ exe "hi Title           guifg=".s:WHITE
 "Missing many more
 
 
-
 " ------------------------------
 " SET BOLDS IF ALLOWED
 " ------------------------------
 if g:hubs_NoBold==0
-    exe "hi Cursor       ".s:CTX_DEC."=bold"
-    exe "hi Character    ".s:CTX_DEC."=bold"
-    exe "hi Constant     ".s:CTX_DEC."=bold"
-    exe "hi Conditional  ".s:CTX_DEC."=bold"
-    exe "hi Repeat       ".s:CTX_DEC."=bold"
-    exe "hi Exception    ".s:CTX_DEC."=bold"
-    exe "hi PreCondit    ".s:CTX_DEC."=bold"
-    exe "hi PreProc      ".s:CTX_DEC."=bold"
-    exe "hi Define       ".s:CTX_DEC."=bold"
-    exe "hi Macro        ".s:CTX_DEC."=bold"
-    exe "hi Type         ".s:CTX_DEC."=bold"
-    exe "hi TypeDef      ".s:CTX_DEC."=bold"
-    exe "hi StorageClass ".s:CTX_DEC."=bold"
-    exe "hi Structure    ".s:CTX_DEC."=bold"
-    exe "hi MatchParen   ".s:CTX_DEC."=bold"
-    exe "hi SpecialChar  ".s:CTX_DEC."=bold"
-    exe "hi SpecialComment ".s:CTX_DEC."=bold"
-    exe "hi SpellCap     ".s:CTX_DEC."=bold"
-    exe "hi Title        ".s:CTX_DEC."=bold"
-    exe "hi Todo         ".s:CTX_DEC."=bold"
+    exe "hi Cursor          ".s:CTX_DEC."=bold"
+    exe "hi Character       ".s:CTX_DEC."=bold"
+    exe "hi Constant        ".s:CTX_DEC."=bold"
+    exe "hi Conditional     ".s:CTX_DEC."=bold"
+    exe "hi Repeat          ".s:CTX_DEC."=bold"
+    exe "hi Exception       ".s:CTX_DEC."=bold"
+    exe "hi PreCondit       ".s:CTX_DEC."=bold"
+    exe "hi PreProc         ".s:CTX_DEC."=bold"
+    exe "hi Define          ".s:CTX_DEC."=bold"
+    exe "hi Macro           ".s:CTX_DEC."=bold"
+    exe "hi Type            ".s:CTX_DEC."=bold"
+    exe "hi TypeDef         ".s:CTX_DEC."=bold"
+    exe "hi StorageClass    ".s:CTX_DEC."=bold"
+    exe "hi Structure       ".s:CTX_DEC."=bold"
+    exe "hi MatchParen      ".s:CTX_DEC."=bold"
+    exe "hi SpecialChar     ".s:CTX_DEC."=bold"
+    exe "hi SpecialComment  ".s:CTX_DEC."=bold"
+    exe "hi SpellCap        ".s:CTX_DEC."=bold"
+    exe "hi Title           ".s:CTX_DEC."=bold"
+    exe "hi Todo            ".s:CTX_DEC."=bold"
 endif
 
 " ----------------------------------------
