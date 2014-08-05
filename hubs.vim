@@ -141,7 +141,26 @@
 "           
 "           let g:hubs_NoBold=1
 "
+"
+" g:hubs_HighContrast:
+"   ABOUT:
+"       An option that can be implemented if the user prefers a darker
+"       background.  This is a user preference - for instance, on some
+"       displays (mainly laptops) the darker background can seem too dark,
+"       while on newer LED displays the extra contrast looks much better.
+"
+"   TO USE:
+"       Add the following line to your .vimrc file.
+"
+"           let g:hus_HighContrast=1
+"
 " -----------------------------------------------------------------------------------
+
+set background=dark
+hi clear
+if exists("syntax_on")
+    syntax reset
+endif
 
 " ------------------------------
 " GLOBALS
@@ -150,11 +169,8 @@ if ! exists("g:hubs_NoBold")
     let g:hubs_NoBold=0
 endif
 
-set background=dark
-hi clear
-
-if exists("syntax_on")
-    syntax reset
+if ! exists("g:hubs_HighContrast")
+    let g:hubs_HighContrast=0
 endif
 
 let g:colors_name="hubs"
@@ -222,9 +238,15 @@ else
 
 endif
 
-let s:FOREGROUND    = s:WHITE
-let s:BACKGROUND    = s:BLACK
 let s:COMMENT       = s:DARK_GREEN
+let s:FOREGROUND    = s:WHITE
+
+if g:hubs_HighContrast==0
+    let s:BACKGROUND = s:DARK_GRAY
+else
+    let s:BACKGROUND = s:BLACK
+endif
+
 
 " ------------------------------
 " ADDITIONAL SYNTAX RULES
