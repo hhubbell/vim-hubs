@@ -282,7 +282,7 @@ exe "hi String          ".s:CTX_FG."=".s:LIGHT_RED
 
 " --- IDENTIFIER ---------------
 exe "hi Function        ".s:CTX_FG."=".s:YELLOW  
-exe "hi Identifier      ".s:CTX_FG."=".s:CREAM
+exe "hi Identifier      ".s:CTX_FG."=".s:WHITE
 
 " --- STATEMENT ----------------
 exe "hi Conditional     ".s:CTX_FG."=".s:ORANGE
@@ -335,7 +335,7 @@ exe "hi DiffLine        ".s:CTX_FG."=".s:DARK_AQUA
 exe "hi Underlined      ".s:CTX_FG."=".s:LIGHT_BLUE."                                   ".s:CTX_DEC."=underline"
 
 " --- ERROR --------------------
-exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED
+exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED
 
 " --- HTML SPECIFIC ------------
 exe "hi htmlArg         ".s:CTX_FG."=".s:DARK_AQUA
@@ -403,10 +403,20 @@ hi link phpMemberSelector   Operator
 hi link phpMethods          Function
 hi link phpOperator         Operator
 hi link phpRelation         Operator
-hi link phpVarSelector      Identifier
+hi link phpVarSelector      Operator
 
 " --- CSS SPECIFIC -------------
 hi link cssBraces           Braces
 
 " --- PYTHON SPECIFIC ----------
 hi link pythonEscape        SpecialChar
+
+" --- JAVASCRIPT SPECIFIC ------
+hi link javaScriptBraces    Braces
+hi link javaScriptGlobal    Structure
+hi link javaScriptIdentifier Type
+hi link javascriptMember    Structure
+hi link javaScriptNumber    Number
+hi link javaScriptOperator  Operator
+hi link javaScriptParens    Braces
+hi link javaScriptType      Type
