@@ -310,7 +310,7 @@ exe "hi Structure       ".s:CTX_FG."=".s:DARK_AQUA
 exe "hi Debug           ".s:CTX_FG."=".s:LIGHT_GREEN."                                  ".s:CTX_DEC."=underline"
 exe "hi Delimiter       ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi MatchParen      ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:STEEL_BLUE
-exe "hi Special         ".s:CTX_FG."=".s:YELLOW                              
+exe "hi Special         ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi SpecialChar     ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi SpecialComment  ".s:CTX_FG."=".s:COMMENT
 exe "hi SpecialKey      ".s:CTX_FG."=".s:LIGHT_GREEN
@@ -372,6 +372,7 @@ if g:hubs_NoBold==0
     exe "hi PreCondit       ".s:CTX_DEC."=bold"
     exe "hi PreProc         ".s:CTX_DEC."=bold"
     exe "hi Repeat          ".s:CTX_DEC."=bold"
+    exe "hi Special         ".s:CTX_DEC."=bold"
     exe "hi SpecialChar     ".s:CTX_DEC."=bold"
     exe "hi SpecialComment  ".s:CTX_DEC."=bold"
     exe "hi SpellCap        ".s:CTX_DEC."=bold"
@@ -407,9 +408,6 @@ hi link phpVarSelector      Operator
 
 " --- CSS SPECIFIC -------------
 hi link cssBraces           Braces
-
-" --- PYTHON SPECIFIC ----------
-hi link pythonEscape        SpecialChar
 
 " --- JAVASCRIPT SPECIFIC ------
 hi link javaScriptBraces    Braces
