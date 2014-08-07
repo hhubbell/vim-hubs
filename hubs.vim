@@ -321,11 +321,11 @@ exe "hi SpellBad        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RE
 exe "hi SpellCap        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED."     ".s:CTX_DEC."=underline"
 
 " --- DIFF ---------------------
-exe "hi DiffFile        ".s:CTX_FG."=".s:LIGHT_GRAY
-exe "hi DiffNewFile     ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN
-exe "hi DiffOldFile     ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:LIGHT_RED
+exe "hi DiffFile        ".s:CTX_FG."=".s:LIGHT_AQUA
+exe "hi DiffNewFile     ".s:CTX_FG."=".s:LIGHT_AQUA
+exe "hi DiffOldFile     ".s:CTX_FG."=".s:LIGHT_AQUA
 exe "hi DiffAdded       ".s:CTX_FG."=".s:DARK_GREEN
-exe "hi DiffRemoved     ".s:CTX_FG."=".s:LIGHT_RED
+exe "hi DiffRemoved     ".s:CTX_FG."=".s:DARK_RED
 exe "hi DiffChange      ".s:CTX_FG."=".s:YELLOW
 exe "hi DiffText        ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:YELLOW
 exe "hi DiffLine        ".s:CTX_FG."=".s:DARK_AQUA
@@ -398,7 +398,7 @@ hi link xmlTagName          htmlTagName
 hi link xmlEndTag           htmlEndTag
 
 " --- PHP SPECIFIC -------------
-hi link phpDefine           TypeDef
+hi link phpDefine           Function
 hi link phpFunctions        Function
 hi link phpMemberSelector   Operator
 hi link phpMethods          Function
