@@ -223,7 +223,7 @@ else
 endif
 
 let s:FOREGROUND    = s:WHITE
-let s:BACKGROUND    = s:BLACK
+let s:BACKGROUND    = s:DARK_GRAY
 let s:COMMENT       = s:DARK_GREEN
 
 " ------------------------------
