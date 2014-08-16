@@ -3,7 +3,7 @@
 " File:             hubs.vim
 " URL:              https://github.com/hhubbell/vim-hubs.git
 " Maintainer:       Harry Hubbell (hhubbell@uvm.edu)
-" Version:          0.5
+" Version:          2.0.1
 "
 " A dark colorscheme with the right amount of contrast - Not too hard on the
 " eyes while still being of use.
@@ -141,7 +141,26 @@
 "           
 "           let g:hubs_NoBold=1
 "
+"
+" g:hubs_HighContrast:
+"   ABOUT:
+"       An option that can be implemented if the user prefers a darker
+"       background.  This is a user preference - for instance, on some
+"       displays (mainly laptops) the darker background can seem too dark,
+"       while on newer LED displays the extra contrast looks much better.
+"
+"   TO USE:
+"       Add the following line to your .vimrc file.
+"
+"           let g:hus_HighContrast=1
+"
 " -----------------------------------------------------------------------------------
+
+set background=dark
+hi clear
+if exists("syntax_on")
+    syntax reset
+endif
 
 " ------------------------------
 " GLOBALS
@@ -150,11 +169,8 @@ if ! exists("g:hubs_NoBold")
     let g:hubs_NoBold=0
 endif
 
-set background=dark
-hi clear
-
-if exists("syntax_on")
-    syntax reset
+if ! exists("g:hubs_HighContrast")
+    let g:hubs_HighContrast=0
 endif
 
 let g:colors_name="hubs"
@@ -222,9 +238,14 @@ else
 
 endif
 
-let s:FOREGROUND    = s:WHITE
-let s:BACKGROUND    = s:DARK_GRAY
-let s:COMMENT       = s:DARK_GREEN
+let s:COMMENT = s:DARK_GREEN
+let s:FOREGROUND = s:WHITE
+
+if g:hubs_HighContrast==0
+    let s:BACKGROUND = s:DARK_GRAY
+else
+    let s:BACKGROUND = s:BLACK
+endif
 
 " ------------------------------
 " ADDITIONAL SYNTAX RULES
@@ -232,10 +253,9 @@ let s:COMMENT       = s:DARK_GREEN
 syn match Braces    display '[{}()\[\]]'
 syn match Ref       display '[.]'
 
-" ------------------------------
-" ASSIGN COLORS
-" ------------------------------
-
+" ------------------------------------------------------------------------------------------------
+"                                       ASSIGN COLORS
+" ------------------------------------------------------------------------------------------------
 " CLASS                 FOREGROUND                      BACKGROUND                      ADDITIONAL
 " ------------------------------------------------------------------------------------------------
 
@@ -261,7 +281,7 @@ exe "hi String          ".s:CTX_FG."=".s:LIGHT_RED
 
 " --- IDENTIFIER ---------------
 exe "hi Function        ".s:CTX_FG."=".s:YELLOW  
-exe "hi Identifier      ".s:CTX_FG."=".s:CREAM
+exe "hi Identifier      ".s:CTX_FG."=".s:WHITE
 
 " --- STATEMENT ----------------
 exe "hi Conditional     ".s:CTX_FG."=".s:ORANGE
@@ -288,31 +308,36 @@ exe "hi Structure       ".s:CTX_FG."=".s:DARK_AQUA
 " --- SPECIAL ------------------
 exe "hi Debug           ".s:CTX_FG."=".s:LIGHT_GREEN."                                  ".s:CTX_DEC."=underline"
 exe "hi Delimiter       ".s:CTX_FG."=".s:LIGHT_GRAY
-exe "hi MatchParen      ".s:CTX_FG."=".s:DARK_GRAY."  ".s:CTX_BG."=".s:STEEL_BLUE
-exe "hi Special         ".s:CTX_FG."=".s:YELLOW                              
+exe "hi MatchParen      ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:STEEL_BLUE
+exe "hi Special         ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi SpecialChar     ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi SpecialComment  ".s:CTX_FG."=".s:COMMENT
 exe "hi SpecialKey      ".s:CTX_FG."=".s:LIGHT_GREEN
 exe "hi Tag             ".s:CTX_FG."=".s:YELLOW
 
 " --- SPELLING -----------------
-exe "hi SpellBad        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED."      ".s:CTX_DEC."=underline"
-exe "hi SpellCap        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED."      ".s:CTX_DEC."=underline"
+exe "hi SpellBad        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED."     ".s:CTX_DEC."=underline"
+exe "hi SpellCap        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED."     ".s:CTX_DEC."=underline"
 
 " --- DIFF ---------------------
-exe "hi DiffAdd         ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:LIGHT_GREEN
-exe "hi DiffChange      ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:YELLOW
-exe "hi DiffDelete      ".s:CTX_FG."=".s:BLACK."       ".s:CTX_BG."=".s:LIGHT_RED
-" difftext
+exe "hi DiffFile        ".s:CTX_FG."=".s:LIGHT_GRAY
+exe "hi DiffNewFile     ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN
+exe "hi DiffOldFile     ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:LIGHT_RED
+exe "hi DiffAdded       ".s:CTX_FG."=".s:DARK_GREEN
+exe "hi DiffRemoved     ".s:CTX_FG."=".s:LIGHT_RED
+exe "hi DiffChange      ".s:CTX_FG."=".s:YELLOW
+exe "hi DiffText        ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:YELLOW
+exe "hi DiffLine        ".s:CTX_FG."=".s:DARK_AQUA
 " ------------------------------
 
 " --- UNDERLINED ---------------
 exe "hi Underlined      ".s:CTX_FG."=".s:LIGHT_BLUE."                                   ".s:CTX_DEC."=underline"
 
 " --- ERROR --------------------
-exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."       ".s:CTX_BG."=".s:DARK_RED
+exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED
 
 " --- HTML SPECIFIC ------------
+exe "hi htmlArg         ".s:CTX_FG."=".s:DARK_AQUA
 exe "hi htmlTag         ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi htmlTagName     ".s:CTX_FG."=".s:YELLOW
 exe "hi htmlEndTag      ".s:CTX_FG."=".s:LIGHT_GRAY
@@ -320,7 +345,7 @@ exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
 
 " TODO UNKOWN
 exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
-exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE."                                    ".s:CTX_DEC."=bold"
+exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE
 " incsearch
 " folded column
 " folded
@@ -337,44 +362,58 @@ if g:hubs_NoBold==0
     exe "hi Character       ".s:CTX_DEC."=bold"
     exe "hi Constant        ".s:CTX_DEC."=bold"
     exe "hi Conditional     ".s:CTX_DEC."=bold"
-    exe "hi Repeat          ".s:CTX_DEC."=bold"
+    exe "hi Define          ".s:CTX_DEC."=bold"
+    exe "hi DiffChange      ".s:CTX_DEC."=bold"
+    exe "hi Directory       ".s:CTX_DEC."=bold"
     exe "hi Exception       ".s:CTX_DEC."=bold"
+    exe "hi MatchParen      ".s:CTX_DEC."=bold"
+    exe "hi Macro           ".s:CTX_DEC."=bold"
     exe "hi PreCondit       ".s:CTX_DEC."=bold"
     exe "hi PreProc         ".s:CTX_DEC."=bold"
-    exe "hi Define          ".s:CTX_DEC."=bold"
-    exe "hi Macro           ".s:CTX_DEC."=bold"
-    exe "hi Type            ".s:CTX_DEC."=bold"
-    exe "hi TypeDef         ".s:CTX_DEC."=bold"
-    exe "hi StorageClass    ".s:CTX_DEC."=bold"
-    exe "hi Structure       ".s:CTX_DEC."=bold"
-    exe "hi MatchParen      ".s:CTX_DEC."=bold"
+    exe "hi Repeat          ".s:CTX_DEC."=bold"
+    exe "hi Special         ".s:CTX_DEC."=bold"
     exe "hi SpecialChar     ".s:CTX_DEC."=bold"
     exe "hi SpecialComment  ".s:CTX_DEC."=bold"
     exe "hi SpellCap        ".s:CTX_DEC."=bold"
+    exe "hi StorageClass    ".s:CTX_DEC."=bold"
+    exe "hi Structure       ".s:CTX_DEC."=bold"
     exe "hi Title           ".s:CTX_DEC."=bold"
     exe "hi Todo            ".s:CTX_DEC."=bold"
+    exe "hi Type            ".s:CTX_DEC."=bold"
+    exe "hi TypeDef         ".s:CTX_DEC."=bold"
 endif
 
 " ----------------------------------------
 " TARGET SPECIFIC LANGUAGES
 " ----------------------------------------
 " --- GENERAL ------------------
-hi link Braces          Delimiter
-hi link Ref             Operator
+hi link Braces              Delimiter
+hi link Ref                 Operator
+
+" --- XML SPECIFIC -------------
+hi link xmlAttrib           htmlArg
+hi link xmlTag              htmlTag
+hi link xmlTagName          htmlTagName
+hi link xmlEndTag           htmlEndTag
 
 " --- PHP SPECIFIC -------------
-hi link phpDefine       TypeDef
-hi link phpFunctions    Function
+hi link phpDefine           TypeDef
+hi link phpFunctions        Function
 hi link phpMemberSelector   Operator
-hi link phpMethods      Function
-hi link phpOperator     Operator
-hi link phpRelation     Operator
-hi link phpVarSelector  Identifier
+hi link phpMethods          Function
+hi link phpOperator         Operator
+hi link phpRelation         Operator
+hi link phpVarSelector      Operator
 
 " --- CSS SPECIFIC -------------
-hi link cssBraces       Braces
-"hi link cssClassName    Conditional
-"hi link cssIdentifier   Conditional
+hi link cssBraces           Braces
 
-" --- PYTHON SPECIFIC ----------
-hi link pythonEscape    SpecialChar
+" --- JAVASCRIPT SPECIFIC ------
+hi link javaScriptBraces    Braces
+hi link javaScriptGlobal    Structure
+hi link javaScriptIdentifier Type
+hi link javascriptMember    Structure
+hi link javaScriptNumber    Number
+hi link javaScriptOperator  Operator
+hi link javaScriptParens    Braces
+hi link javaScriptType      Type
