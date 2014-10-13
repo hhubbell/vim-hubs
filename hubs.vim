@@ -251,7 +251,6 @@ else
     let s:BACKGROUND = s:BLACK
 endif
 
-
 " ------------------------------
 " ADDITIONAL SYNTAX RULES
 " ------------------------------
