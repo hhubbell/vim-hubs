@@ -173,6 +173,10 @@ if ! exists("g:hubs_HighContrast")
     let g:hubs_HighContrast=0
 endif
 
+if ! exists("g:hubs_MatchTrailingWhitespace")
+    let g:hubs_MatchTrailingWhitespace=0
+endif
+
 let g:colors_name="hubs"
 
 " ------------------------------
@@ -381,6 +385,11 @@ if g:hubs_NoBold==0
     exe "hi Todo            ".s:CTX_DEC."=bold"
     exe "hi Type            ".s:CTX_DEC."=bold"
     exe "hi TypeDef         ".s:CTX_DEC."=bold"
+endif
+
+if g:hubs_MatchTrailingWhitespace==1
+    exe "hi TrailingWhitespace ".s:CTX_BG."=".s:DARK_RED
+    match TrailingWhitespace /\s\+$/
 endif
 
 " ----------------------------------------
