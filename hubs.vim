@@ -173,6 +173,10 @@ if ! exists("g:hubs_HighContrast")
     let g:hubs_HighContrast=0
 endif
 
+if ! exists("g:hubs_MatchTrailingWhitespace")
+    let g:hubs_MatchTrailingWhitespace=0
+endif
+
 let g:colors_name="hubs"
 
 " ------------------------------
@@ -309,7 +313,7 @@ exe "hi Structure       ".s:CTX_FG."=".s:DARK_AQUA
 " --- SPECIAL ------------------
 exe "hi Debug           ".s:CTX_FG."=".s:LIGHT_GREEN."                                  ".s:CTX_DEC."=underline"
 exe "hi Delimiter       ".s:CTX_FG."=".s:LIGHT_GRAY
-exe "hi MatchParen      ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:STEEL_BLUE
+exe "hi MatchParen      ".s:CTX_FG."=".s:BACKGROUND."    ".s:CTX_BG."=".s:DARK_AQUA
 exe "hi Special         ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi SpecialChar     ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi SpecialComment  ".s:CTX_FG."=".s:COMMENT
@@ -382,6 +386,11 @@ if g:hubs_NoBold==0
     exe "hi Todo            ".s:CTX_DEC."=bold"
     exe "hi Type            ".s:CTX_DEC."=bold"
     exe "hi TypeDef         ".s:CTX_DEC."=bold"
+endif
+
+if g:hubs_MatchTrailingWhitespace==1
+    exe "hi TrailingWhitespace ".s:CTX_BG."=".s:DARK_RED
+    match TrailingWhitespace /\s\+$/
 endif
 
 " ----------------------------------------
