@@ -123,13 +123,13 @@
 "   ABOUT:
 "       An option that can be implemented if the selected font is too small or
 "       does not render bold fonts well.  The following fonts are normally bold:
-"       
-"           Cursor              Character           Constant            
-"           Conditional         Repeat              Exception                 
-"           PreCondit           PreProc             Define              
+"
+"           Cursor              Character           Constant
+"           Conditional         Repeat              Exception
+"           PreCondit           PreProc             Define
 "           Macro               Type                TypeDef
-"           StorageClass        Structure           MatchParen          
-"           SpecialChar         SpecialComment      SpellCap        
+"           StorageClass        Structure           MatchParen
+"           SpecialChar         SpecialComment      SpellCap
 "           Title
 "
 "       Reference the above VIM DOCS to see what these syntax groups highlight
@@ -138,7 +138,7 @@
 "       Add the following line to your .vimrc file, before your colorcheme
 "       declaration.  This is important! The option will not work if it is set
 "       after.
-"           
+"
 "           let g:hubs_NoBold=1
 "
 "
@@ -146,13 +146,25 @@
 "   ABOUT:
 "       An option that can be implemented if the user prefers a darker
 "       background.  This is a user preference - for instance, on some
-"       displays (mainly laptops) the darker background can seem too dark,
-"       while on newer LED displays the extra contrast looks much better.
+"       displays the darker background can seem too dark, while on others
+"       the extra contrast looks much better; this is mainly due to monitor
+"       brand and color settings.
 "
 "   TO USE:
 "       Add the following line to your .vimrc file.
 "
 "           let g:hubs_HighContrast=1
+"
+"
+" g:hubs_MatchTrailingWhitespace:
+"   ABOUT:
+"       An option that can be implemented if the user wishes to see any
+"       trailing whitespace on lines.
+"
+"   TO USE:
+"       Add the following line to your .vimrc file.
+"
+"           let g:hubs_MatchTrailingWhitespace=1
 "
 " -----------------------------------------------------------------------------------
 
@@ -210,7 +222,7 @@ if has('gui_running')
     let s:CTX_BG        = "guibg"
     let s:CTX_DEC       = "gui"
 
-else 
+else
     " FOR TERMINAL VIM
     " This uses the translateColor.py script
     " COLORS
@@ -273,7 +285,7 @@ exe "hi VisualNOS       ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGRO
 
 " --- COMMENT ------------------
 exe "hi Comment         ".s:CTX_FG."=".s:COMMENT
-exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN      
+exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN
 
 " --- VARIABLE TYPES -----------
 exe "hi Boolean         ".s:CTX_FG."=".s:LIGHT_RED
@@ -284,7 +296,7 @@ exe "hi Number          ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi String          ".s:CTX_FG."=".s:LIGHT_RED
 
 " --- IDENTIFIER ---------------
-exe "hi Function        ".s:CTX_FG."=".s:YELLOW  
+exe "hi Function        ".s:CTX_FG."=".s:YELLOW
 exe "hi Identifier      ".s:CTX_FG."=".s:WHITE
 
 " --- STATEMENT ----------------
@@ -293,7 +305,7 @@ exe "hi Statement       ".s:CTX_FG."=".s:YELLOW."                               
 exe "hi Repeat          ".s:CTX_FG."=".s:ORANGE
 exe "hi Label           ".s:CTX_FG."=".s:YELLOW."                                       ".s:CTX_DEC."=underline"
 exe "hi Operator        ".s:CTX_FG."=".s:YELLOW
-exe "hi Keyword         ".s:CTX_FG."=".s:YELLOW    
+exe "hi Keyword         ".s:CTX_FG."=".s:YELLOW
 exe "hi Exception       ".s:CTX_FG."=".s:YELLOW
 
 " --- PREPROC ------------------
