@@ -1,32 +1,28 @@
-#! /usr/bin/env python
-
-import sys, csv, math
-
+#!/usr/bin/env python
 # Harry Hubbell
 # 1/15/14
-#
-# translateColor.py: 
-# Convert hex values in a vim colorscheme to rgb 
-# for terminal vim
+# translateColor.py: Convert hex values in a vim colorscheme to rgb for
+# terminal vim
 
+import sys, csv, math
 
 # --------------------
 # ADDITIONAL FUNCTIONS
 # --------------------
 def findNearest(rgb, library):
-    # find nearest value in color list
+    """
+    Find nearest value in color list
+    """
     distance = []
     for color in library:
         distance.append(pow(rgb[0] - color[0], 2) + pow(rgb[1] - color[1], 2) + pow(rgb[2] - color[2], 2))
 
     return distance.index(min(distance))
 
-# First all terminal colors must be declared for 
-# comparison to vim-hubs colors 
+# First all terminal colors must be declared for comparison to vim-hubs colors
 print "Setting up color library..."
 
 converted_colors = []
-
 term_colors = [
     ['000000', 16], ['00005f', 17], ['000087', 18], ['0000af', 19], ['0000d7', 20],
     ['0000ff', 21], ['005f00', 22], ['005f5f', 23], ['005f87', 24], ['005faf', 25],
@@ -85,18 +81,15 @@ for color in term_colors:
     g = int(color[0][2:4], 16)
     b = int(color[0][4:6], 16)
 
-    #print "%d %d %d" %(r, g, b)
-
     converted_colors.append([r, g, b])
+
 print "Setup complete."
-#print converted_colors[0]
 
 # Get filename
 filename = raw_input('Enter Filename: ')
 
-# Since this program really only serves a single 
-# purpose, I will assume that I can enter the correct
-# filename without messing it up.
+# Since this program really only serves a single purpose, I will assume that
+# I can enter the correct filename without messing it up.
 #
 # Going with a csv file for ease.
 #
@@ -107,24 +100,16 @@ with open(filename, 'r') as csvfile:
 
     for row in content:
         row[1] = row[1][1:]
-        # FOR TESTING
-        #print row[1]
-        
-        # Agian, this assumes that the file entered is the
-        # correct one and has the expected syntax.
-        #
-        # Not very scalable but it works
+        # Again, this assumes that the file entered is the correct one and has
+        # the expected syntax. Not very scalable but it works
         r = int(row[1][0:2], 16)
         g = int(row[1][2:4], 16)
         b = int(row[1][4:6], 16)
-        
         rgb = [r, g, b]
 
-        #print "rgb(%d, %d, %d)" %(r, g, b)
         # Now cycle through color blocks
         # start with red:
         closestColorI = findNearest(rgb, converted_colors) 
-        #print closestColor
 
         # --------------------
         # THE PAYOFF
