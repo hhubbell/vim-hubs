@@ -1,8 +1,8 @@
-"Vim color file
+" Vim color file
 "
 " File:             hubs.vim
 " URL:              https://github.com/hhubbell/vim-hubs.git
-" Maintainer:       Harry Hubbell (hhubbell@uvm.edu)
+" Author:           Harry Hubbell (hhubbell@uvm.edu)
 " Version:          2.0.1
 "
 " A dark colorscheme with the right amount of contrast - Not too hard on the
@@ -34,10 +34,10 @@
 "       LIGHT AQUA  #5E8D87
 " -------------------------
 "
-" -----------------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 " THE FOLLOWING IS TAKEN FROM THE VIM DOCS
 " The group name color assignments are ordered in the following manner
-" -----------------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 " NAMING CONVENTIONS		    *group-name* *{group-name}* *E669* *W18*
 "
 " A syntax group name is to be used for syntax items that match the same kind of
@@ -116,13 +116,15 @@
 " When using the Ignore group, you may also consider using the conceal
 " mechanism.  See |conceal|.
 "
-" -----------------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 " ADDITIONAL DOCUMENTATION
-" -----------------------------------------------------------------------------------
+" -------------------------------------------------------------------------
+"
 " g:hubs_NoBold:
+"   
 "   ABOUT:
-"       An option that can be implemented if the selected font is too small or
-"       does not render bold fonts well.  The following fonts are normally bold:
+"   An option that can be implemented if the selected font is too small or
+"   does not render bold fonts well.  The following fonts are normally bold:
 "
 "           Cursor              Character           Constant
 "           Conditional         Repeat              Exception
@@ -132,41 +134,43 @@
 "           SpecialChar         SpecialComment      SpellCap
 "           Title
 "
-"       Reference the above VIM DOCS to see what these syntax groups highlight
+"   Reference the above VIM DOCS to see what these syntax groups highlight
 "
 "   TO USE:
-"       Add the following line to your .vimrc file, before your colorcheme
-"       declaration.  This is important! The option will not work if it is set
-"       after.
+"   Add the following line to your .vimrc file, before your colorcheme
+"   declaration.  This is important! The option will not work if it is set
+"   after.
 "
 "           let g:hubs_NoBold=1
 "
 "
 " g:hubs_HighContrast:
+"
 "   ABOUT:
-"       An option that can be implemented if the user prefers a darker
-"       background.  This is a user preference - for instance, on some
+"   An option that can be implemented if the user prefers a darker
+"   background.  This is a user preference - for instance, on some
 "       displays the darker background can seem too dark, while on others
 "       the extra contrast looks much better; this is mainly due to monitor
 "       brand and color settings.
 "
 "   TO USE:
-"       Add the following line to your .vimrc file.
+"   Add the following line to your .vimrc file.
 "
 "           let g:hubs_HighContrast=1
 "
 "
 " g:hubs_MatchTrailingWhitespace:
+"   
 "   ABOUT:
-"       An option that can be implemented if the user wishes to see any
-"       trailing whitespace on lines.
+"   An option that can be implemented if the user wishes to see any
+"   trailing whitespace on lines.
 "
 "   TO USE:
-"       Add the following line to your .vimrc file.
+"   Add the following line to your .vimrc file.
 "
 "           let g:hubs_MatchTrailingWhitespace=1
 "
-" -----------------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 
 set background=dark
 hi clear
@@ -237,7 +241,7 @@ else
     let s:ORANGE        = "173"
     let s:YELLOW        = "222"
     let s:LIGHT_GREEN   = "115"
-    let s:DARK_GREEN    = "71"
+    let s:DARK_GREEN    = "72"
     let s:GRAY_GREEN    = "65"
     let s:LIGHT_BLUE    = "109"
     let s:DARK_BLUE     = "67"
