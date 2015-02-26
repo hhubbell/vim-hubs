@@ -366,6 +366,7 @@ exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
 " TODO UNKOWN
 exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
 exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE
+exe "hi Search                                          ".s:CTX_BG."=".s:YELLOW
 " incsearch
 " folded column
 " folded
