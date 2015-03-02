@@ -104,17 +104,20 @@
 " The minor groups are linked to the preferred groups, so they get the same
 " highlighting.  You can override these defaults by using ':highlight' commands
 " after sourcing the 'syntax.vim' file.
-
+"
 " Note that highlight group names are not case sensitive.  'String' and 'string'
 " can be used for the same group.
-
+"
 " The following names are reserved and cannot be used as a group name:
 "	NONE   ALL   ALLBUT   contains	 contained
-
-
+"
+"
 "							*hl-Ignore*
 " When using the Ignore group, you may also consider using the conceal
 " mechanism.  See |conceal|.
+"
+" You can see all the groups currently active with this command:
+"   :so $VIMRUNTIME/syntax/hitest.vim
 "
 " -------------------------------------------------------------------------
 " ADDITIONAL DOCUMENTATION
@@ -359,6 +362,7 @@ exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RE
 " --- HTML SPECIFIC ------------
 exe "hi htmlArg         ".s:CTX_FG."=".s:DARK_AQUA
 exe "hi htmlTag         ".s:CTX_FG."=".s:LIGHT_GRAY
+exe "hi htmlTagN        ".s:CTX_FG."=".s:YELLOW
 exe "hi htmlTagName     ".s:CTX_FG."=".s:YELLOW
 exe "hi htmlEndTag      ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
@@ -435,6 +439,7 @@ hi link phpVarSelector      Operator
 hi link cssBraces           Braces
 
 " --- JAVASCRIPT SPECIFIC ------
+hi link javaScript          Normal
 hi link javaScriptBraces    Braces
 hi link javaScriptGlobal    Structure
 hi link javaScriptIdentifier Type
