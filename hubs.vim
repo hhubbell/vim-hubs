@@ -435,6 +435,14 @@ hi link phpOperator         Operator
 hi link phpRelation         Operator
 hi link phpVarSelector      Operator
 
+" --- RUBY SPECIFIC ------------
+hi link rubyModule          Structure
+hi link rubyClass           Structure
+hi link rubyDefine          Statement
+hi link rubyControl         Repeat
+hi link rubyArrayDelimiter  Delimiter
+hi link rubyCurlyBlockDelimiter Delimiter
+
 " --- CSS SPECIFIC -------------
 hi link cssBraces           Braces
 
