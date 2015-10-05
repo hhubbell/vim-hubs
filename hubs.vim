@@ -289,6 +289,9 @@ exe "hi NonText         ".s:CTX_FG."=".s:BACKGROUND
 exe "hi Normal          ".s:CTX_FG."=".s:FOREGROUND."   ".s:CTX_BG."=".s:BACKGROUND
 exe "hi Visual          ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGROUND."   ".s:CTX_DEC."=none"
 exe "hi VisualNOS       ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGROUND."   ".s:CTX_DEC."=none"
+exe "hi StatusLine      ".s:CTX_FG."=".s:GRAY."         ".s:CTX_BG."=".s:DARK_GRAY."    ".s:CTX_DEC."=bold"
+exe "hi StatusLineNC    ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:GRAY
+exe "hi VertSplit       ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:GRAY
 
 " --- COMMENT ------------------
 exe "hi Comment         ".s:CTX_FG."=".s:COMMENT
