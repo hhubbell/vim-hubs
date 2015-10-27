@@ -14,25 +14,25 @@
 "       Numbers                 - blue
 "       Functions               - yellow
 "
-" -------------------------
+" ---------------------
 " Hex Lookup Guide
-" -------------------------
-"       WHITE       #C5C8C6     (Foreground)
-"       CREAM       #DFCFAF
-"       GRAY        #EDEDED
-"       BLACK       #202020     (Background)
-"       LIGHT RED   #CC6666
-"       DARK RED    #A54242
-"       ORANGE      #DE935F
-"       YELLOW      #F0C674
-"       LIGHT GREEN #96D6A6
-"       DARK GREEN  #5F9C6F
-"       LIGHT BLUE  #5F819D
-"       DARK BLUE   #81A2BE
-"       LIGHT VIOLET#85678F
-"       DARK VIOLET #B294BB
-"       LIGHT AQUA  #5E8D87
-" -------------------------
+" ---------------------
+" WHITE         #C5C8C6 (Foreground)
+" CREAM         #DFCFAF (Depreciated)
+" GRAY          #EDEDED
+" BLACK         #202020 (Background)
+" LIGHT RED     #CC6666
+" DARK RED      #A54242
+" ORANGE        #DE935F
+" YELLOW        #F0C674
+" LIGHT GREEN   #96D6A6
+" DARK GREEN    #5F9C6F
+" LIGHT BLUE    #5F819D
+" DARK BLUE     #81A2BE
+" LIGHT VIOLET  #85678F
+" DARK VIOLET   #B294BB
+" LIGHT AQUA    #5E8D87
+" ---------------------
 "
 " -------------------------------------------------------------------------
 " THE FOLLOWING IS TAKEN FROM THE VIM DOCS
@@ -40,72 +40,72 @@
 " -------------------------------------------------------------------------
 " NAMING CONVENTIONS		    *group-name* *{group-name}* *E669* *W18*
 "
-" A syntax group name is to be used for syntax items that match the same kind of
-" thing.  These are then linked to a highlight group that specifies the color.
-" A syntax group name doesn't specify any color or attributes itself.
+" A syntax group name is to be used for syntax items that match the same kind
+" of thing.  These are then linked to a highlight group that specifies the
+" color. A syntax group name doesn't specify any color or attributes itself.
 "
-" The name for a highlight or syntax group must consist of ASCII letters, digits
-" and the underscore.  As a regexp: '[a-zA-Z0-9_]*'
+" The name for a highlight or syntax group must consist of ASCII letters,
+" digits and the underscore.  As a regexp: '[a-zA-Z0-9_]*'
 "
 " To be able to allow each user to pick his favorite set of colors, there must
 " be preferred names for highlight groups that are common for many languages.
 " These are the suggested group names (if syntax highlighting works properly
 " you can see the actual color, except for 'Ignore'):
 "
-"	*Comment	any comment
+"	*Comment	    any comment
 "
-"	*Constant	any constant
-"	 String		a string constant: 'this is a string'
-"	 Character	a character constant: 'c', '\n'
-"	 Number		a number constant: 234, 0xff
-"	 Boolean	a boolean constant: TRUE, false
-"	 Float		a floating point constant: 2.3e10
+"	*Constant	    any constant
+"	 String		    a string constant: 'this is a string'
+"	 Character	    a character constant: 'c', '\n'
+"	 Number		    a number constant: 234, 0xff
+"	 Boolean	    a boolean constant: TRUE, false
+"	 Float		    a floating point constant: 2.3e10
 "
-"	*Identifier	any variable name
-"	 Function	function name (also: methods for classes)
+"	*Identifier	    any variable name
+"	 Function	    function name (also: methods for classes)
 "
-"	*Statement	any statement
+"	*Statement	    any statement
 "    Conditional	if, then, else, endif, switch, etc.
-"	 Repeat		for, do, while, etc.
-"	 Label		case, default, etc.
-"	 Operator	'sizeof', '+', '*', etc.
-"	 Keyword	any other keyword
-"	 Exception	try, catch, throw
+"	 Repeat		    for, do, while, etc.
+"	 Label		    case, default, etc.
+"	 Operator	    'sizeof', '+', '*', etc.
+"	 Keyword	    any other keyword
+"	 Exception	    try, catch, throw
 "
-"	*PreProc	generic Preprocessor
-"	 Include	preprocessor #include
-"	 Define		preprocessor #define
-"	 Macro		same as Define
-"	 PreCondit	preprocessor #if, #else, #endif, etc.
+"	*PreProc	    generic Preprocessor
+"	 Include	    preprocessor #include
+"	 Define		    preprocessor #define
+"	 Macro		    same as Define
+"	 PreCondit	    preprocessor #if, #else, #endif, etc.
 "
-"	*Type		int, long, char, etc.
+"	*Type		    int, long, char, etc.
 "	 StorageClass	static, register, volatile, etc.
-"	 Structure	struct, union, enum, etc.
-"	 Typedef	A typedef
+"	 Structure	    struct, union, enum, etc.
+"	 Typedef	    A typedef
 "
-"	*Special	any special symbol
+"	*Special	    any special symbol
 "	 SpecialChar	special character in a constant
-"	 Tag		you can use CTRL-] on this
-"	 Delimiter	character that needs attention
+"	 Tag		    you can use CTRL-] on this
+"	 Delimiter	    character that needs attention
 "	 SpecialComment	special things inside a comment
-"	 Debug		debugging statements
+"	 Debug		    debugging statements
 "
-"	*Underlined	text that stands out, HTML links
+"	*Underlined	    text that stands out, HTML links
 "
-"	*Ignore		left blank, hidden  |hl-Ignore|
+"	*Ignore		    left blank, hidden  |hl-Ignore|
 "
-"	*Error		any erroneous construct
+"	*Error		    any erroneous construct
 "
-"	*Todo		anything that needs extra attention; mostly the
-"			keywords TODO FIXME and XXX
+"	*Todo		    anything that needs extra attention; mostly the
+"			        keywords TODO FIXME and XXX
 "
-" The names marked with * are the preferred groups; the others are minor groups.
-" For the preferred groups, the 'syntax.vim' file contains default highlighting.
-" The minor groups are linked to the preferred groups, so they get the same
-" highlighting.  You can override these defaults by using ':highlight' commands
-" after sourcing the 'syntax.vim' file.
+" The names marked with * are the preferred groups; the others are minor
+" groups. For the preferred groups, the 'syntax.vim' file contains default
+" highlighting. The minor groups are linked to the preferred groups, so they
+" get the same highlighting.  You can override these defaults by using
+" ':highlight' commands after sourcing the 'syntax.vim' file.
 "
-" Note that highlight group names are not case sensitive.  'String' and 'string'
+" Note that highlight group names are not case sensitive. 'String' and 'string'
 " can be used for the same group.
 "
 " The following names are reserved and cannot be used as a group name:
@@ -292,6 +292,12 @@ exe "hi VisualNOS       ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:FOREGRO
 exe "hi StatusLine      ".s:CTX_FG."=".s:GRAY."         ".s:CTX_BG."=".s:DARK_GRAY."    ".s:CTX_DEC."=bold"
 exe "hi StatusLineNC    ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:GRAY
 exe "hi VertSplit       ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:GRAY
+exe "hi TabLine         ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:GRAY."         ".s:CTX_DEC."=none"
+exe "hi TabLineFill     ".s:CTX_FG."=".s:DARK_GRAY
+exe "hi TabLineSel      ".s:CTX_FG."=".s:COMMENT."      ".s:CTX_BG."=".s:BACKGROUND
+exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
+exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE
+exe "hi Search                                          ".s:CTX_BG."=".s:YELLOW
 
 " --- COMMENT ------------------
 exe "hi Comment         ".s:CTX_FG."=".s:COMMENT
@@ -371,9 +377,6 @@ exe "hi htmlEndTag      ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
 
 " TODO UNKOWN
-exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
-exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE
-exe "hi Search                                          ".s:CTX_BG."=".s:YELLOW
 " incsearch
 " folded column
 " folded
@@ -405,6 +408,7 @@ if g:hubs_NoBold==0
     exe "hi SpellCap        ".s:CTX_DEC."=bold"
     exe "hi StorageClass    ".s:CTX_DEC."=bold"
     exe "hi Structure       ".s:CTX_DEC."=bold"
+    exe "hi TabLine         ".s:CTX_DEC."=bold"
     exe "hi Title           ".s:CTX_DEC."=bold"
     exe "hi Todo            ".s:CTX_DEC."=bold"
     exe "hi Type            ".s:CTX_DEC."=bold"
