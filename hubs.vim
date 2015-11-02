@@ -351,8 +351,8 @@ exe "hi SpecialKey      ".s:CTX_FG."=".s:LIGHT_GREEN
 exe "hi Tag             ".s:CTX_FG."=".s:YELLOW
 
 " --- SPELLING -----------------
-exe "hi SpellBad        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED."     ".s:CTX_DEC."=underline"
-exe "hi SpellCap        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED."     ".s:CTX_DEC."=underline"
+exe "hi SpellBad        ".s:CTX_FG."=".s:FOREGROUND."   ".s:CTX_BG."=".s:DARK_RED
+exe "hi SpellCap        ".s:CTX_FG."=".s:FOREGROUND."   ".s:CTX_BG."=".s:DARK_BLUE
 
 " --- DIFF ---------------------
 exe "hi DiffFile        ".s:CTX_FG."=".s:LIGHT_GRAY
@@ -370,6 +370,7 @@ exe "hi Underlined      ".s:CTX_FG."=".s:LIGHT_BLUE."                           
 
 " --- ERROR --------------------
 exe "hi ErrorMsg        ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED
+exe "hi WarningMsg      ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:DARK_RED
 
 " --- HTML SPECIFIC ------------
 exe "hi htmlArg         ".s:CTX_FG."=".s:DARK_AQUA
@@ -409,6 +410,7 @@ if g:hubs_NoBold==0
     exe "hi Special         ".s:CTX_DEC."=bold"
     exe "hi SpecialChar     ".s:CTX_DEC."=bold"
     exe "hi SpecialComment  ".s:CTX_DEC."=bold"
+    exe "hi SpellBad        ".s:CTX_DEC."=bold"
     exe "hi SpellCap        ".s:CTX_DEC."=bold"
     exe "hi StorageClass    ".s:CTX_DEC."=bold"
     exe "hi Structure       ".s:CTX_DEC."=bold"
