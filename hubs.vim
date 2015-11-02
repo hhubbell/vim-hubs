@@ -297,6 +297,10 @@ exe "hi TabLineSel      ".s:CTX_FG."=".s:DARK_GREEN."   ".s:CTX_BG."=".s:BACKGRO
 exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
 exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi Search                                          ".s:CTX_BG."=".s:YELLOW
+exe "hi Pmenu           ".s:CTX_FG."=".s:FOREGROUND."   ".s:CTX_BG."=".s:BACKGROUND
+exe "hi PmenuSel        ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:YELLOW
+exe "hi PmenuSbar                                       ".s:CTX_BG."=".s:FOREGROUND
+exe "hi PmenuThumb                                      ".s:CTX_BG."=".s:LIGHT_GRAY
 
 " --- COMMENT ------------------
 exe "hi Comment         ".s:CTX_FG."=".s:COMMENT
@@ -304,7 +308,7 @@ exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:COMMENT
 
 " --- VARIABLE TYPES -----------
 exe "hi Boolean         ".s:CTX_FG."=".s:LIGHT_RED
-exe "hi Character       ".s:CTX_FG."=".s:LIGHT_RED
+exe "hi Character       ".s:CTX_FG."=".s:LIGHT_RED 
 exe "hi Constant        ".s:CTX_FG."=".s:LIGHT_BLUE
 exe "hi Float           ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi Number          ".s:CTX_FG."=".s:DARK_BLUE
@@ -398,6 +402,7 @@ if g:hubs_NoBold==0
     exe "hi Exception       ".s:CTX_DEC."=bold"
     exe "hi MatchParen      ".s:CTX_DEC."=bold"
     exe "hi Macro           ".s:CTX_DEC."=bold"
+    exe "hi PmenuSel        ".s:CTX_DEC."=bold"
     exe "hi PreCondit       ".s:CTX_DEC."=bold"
     exe "hi PreProc         ".s:CTX_DEC."=bold"
     exe "hi Repeat          ".s:CTX_DEC."=bold"
