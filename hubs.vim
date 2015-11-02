@@ -274,7 +274,6 @@ endif
 " ADDITIONAL SYNTAX RULES
 " ------------------------------
 syn match Braces    display '[{}()\[\]]'
-syn match Ref       display '[.]'
 
 " ------------------------------------------------------------------------------------------------
 "                                       ASSIGN COLORS
@@ -294,14 +293,14 @@ exe "hi StatusLineNC    ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:GRAY
 exe "hi VertSplit       ".s:CTX_FG."=".s:DARK_GRAY."    ".s:CTX_BG."=".s:GRAY
 exe "hi TabLine         ".s:CTX_FG."=".s:WHITE."        ".s:CTX_BG."=".s:GRAY."         ".s:CTX_DEC."=none"
 exe "hi TabLineFill     ".s:CTX_FG."=".s:DARK_GRAY
-exe "hi TabLineSel      ".s:CTX_FG."=".s:COMMENT."      ".s:CTX_BG."=".s:BACKGROUND
+exe "hi TabLineSel      ".s:CTX_FG."=".s:DARK_GREEN."   ".s:CTX_BG."=".s:BACKGROUND
 exe "hi Title           ".s:CTX_FG."=".s:WHITE."                                        ".s:CTX_DEC."=none"
 exe "hi Directory       ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi Search                                          ".s:CTX_BG."=".s:YELLOW
 
 " --- COMMENT ------------------
 exe "hi Comment         ".s:CTX_FG."=".s:COMMENT
-exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:DARK_GREEN
+exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:COMMENT
 
 " --- VARIABLE TYPES -----------
 exe "hi Boolean         ".s:CTX_FG."=".s:LIGHT_RED
@@ -425,7 +424,6 @@ endif
 " ----------------------------------------
 " --- GENERAL ------------------
 hi link Braces              Delimiter
-hi link Ref                 Operator
 
 " --- XML SPECIFIC -------------
 hi link xmlAttrib           htmlArg
