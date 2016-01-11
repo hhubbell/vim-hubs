@@ -378,7 +378,10 @@ exe "hi htmlTag         ".s:CTX_FG."=".s:LIGHT_GRAY
 exe "hi htmlTagN        ".s:CTX_FG."=".s:YELLOW
 exe "hi htmlTagName     ".s:CTX_FG."=".s:YELLOW
 exe "hi htmlEndTag      ".s:CTX_FG."=".s:LIGHT_GRAY
-exe "hi htmlSpecialTagName  ".s:CTX_FG."=".s:YELLOW
+exe "hi htmlSpecialTagName ".s:CTX_FG."=".s:YELLOW
+
+" --- PYTHON SPECIFIC ----------
+exe "hi pythonDecorator ".s:CTX_FG."=".s:DARK_VIOLET
 
 " TODO UNKOWN
 " incsearch
@@ -406,6 +409,7 @@ if g:hubs_NoBold==0
     exe "hi PmenuSel        ".s:CTX_DEC."=bold"
     exe "hi PreCondit       ".s:CTX_DEC."=bold"
     exe "hi PreProc         ".s:CTX_DEC."=bold"
+    exe "hi pythonDecorator ".s:CTX_DEC."=bold"
     exe "hi Repeat          ".s:CTX_DEC."=bold"
     exe "hi Special         ".s:CTX_DEC."=bold"
     exe "hi SpecialChar     ".s:CTX_DEC."=bold"
