@@ -1,29 +1,11 @@
-#!/usr/bin/env python
-# Harry Hubbell
-# 1/15/14
-# translateColor.py: Convert hex values in a vim colorscheme to rgb for
-# terminal vim
+#
+# Convert hex values to the nearest terminal color equivalent.
+#
 
-import sys, csv, math
+import csv
+import sys
 
-# --------------------
-# ADDITIONAL FUNCTIONS
-# --------------------
-def findNearest(rgb, library):
-    """
-    Find nearest value in color list
-    """
-    distance = []
-    for color in library:
-        distance.append(pow(rgb[0] - color[0], 2) + pow(rgb[1] - color[1], 2) + pow(rgb[2] - color[2], 2))
-
-    return distance.index(min(distance))
-
-# First all terminal colors must be declared for comparison to vim-hubs colors
-print "Setting up color library..."
-
-converted_colors = []
-term_colors = [
+TERM_COLORS = [
     ['000000', 16], ['00005f', 17], ['000087', 18], ['0000af', 19], ['0000d7', 20],
     ['0000ff', 21], ['005f00', 22], ['005f5f', 23], ['005f87', 24], ['005faf', 25],
     ['005fd7', 26], ['005fff', 27], ['008700', 28], ['00875f', 29], ['008787', 30],
@@ -71,51 +53,45 @@ term_colors = [
     ['303030',236], ['3a3a3a',237], ['444444',238], ['4e4e4e',239], ['585858',240],
     ['626262',241], ['6c6c6c',242], ['767676',243], ['808080',244], ['8a8a8a',245],
     ['949494',246], ['9e9e9e',247], ['a8a8a8',248], ['b2b2b2',249], ['bcbcbc',250],
-    ['c6c6c6',251], ['d0d0d0',252], ['dadada',253], ['e4e4e4',254], ['eeeeee',255],
-]
+    ['c6c6c6',251], ['d0d0d0',252], ['dadada',253], ['e4e4e4',254], ['eeeeee',255]]
 
 
-# convert hex to rgb
-for color in term_colors:
-    r = int(color[0][0:2], 16)
-    g = int(color[0][2:4], 16)
-    b = int(color[0][4:6], 16)
+def findNearest(rgb, library):
+    """
+    Find nearest value in color list
+    """
+    distance = []
+    for color in library:
+        distance.append(sum(pow(x - y, 2) for x, y in zip(rgb, color)))
 
-    converted_colors.append([r, g, b])
+    return distance.index(min(distance))
 
-print "Setup complete."
 
-# Get filename
-filename = raw_input('Enter Filename: ')
+if __name__ == '__main__':
+    filename = sys.argv[1]
+    converted_colors = []
 
-# Since this program really only serves a single purpose, I will assume that
-# I can enter the correct filename without messing it up.
-#
-# Going with a csv file for ease.
-#
-# maybe later I will add error checking.
+    # convert hex to rgb
+    for color in TERM_COLORS:
+        r = int(color[0][0:2], 16)
+        g = int(color[0][2:4], 16)
+        b = int(color[0][4:6], 16)
 
-with open(filename, 'r') as csvfile:
-    content = csv.reader(csvfile);
+        converted_colors.append([r, g, b])
 
-    for row in content:
-        row[1] = row[1][1:]
-        # Again, this assumes that the file entered is the correct one and has
-        # the expected syntax. Not very scalable but it works
-        r = int(row[1][0:2], 16)
-        g = int(row[1][2:4], 16)
-        b = int(row[1][4:6], 16)
-        rgb = [r, g, b]
+    with open(filename, 'r') as f:
+        for row in csv.reader(f):
+            # Strip pound sign
+            row[1] = row[1][1:]
 
-        # Now cycle through color blocks
-        # start with red:
-        closestColorI = findNearest(rgb, converted_colors) 
+            r = int(row[1][0:2], 16)
+            g = int(row[1][2:4], 16)
+            b = int(row[1][4:6], 16)
+            rgb = [r, g, b]
 
-        # --------------------
-        # THE PAYOFF
-        # --------------------
-        t_co = term_colors[closestColorI][1]
-        print "%15s -> %3d" %(row[0], t_co)
+            # Now cycle through color blocks
+            closestColorI = findNearest(rgb, converted_colors) 
 
-# close file
-csvfile.close()
+            # The payoff
+            t_co = TERM_COLORS[closestColorI][1]
+            print("%15s -> %3d" %(row[0], t_co))
