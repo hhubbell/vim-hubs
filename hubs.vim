@@ -18,7 +18,6 @@
 " Hex Lookup Guide
 " ---------------------
 " WHITE         #C5C8C6 (Foreground)
-" CREAM         #DFCFAF (Depreciated)
 " GRAY          #EDEDED
 " BLACK         #202020 (Background)
 " LIGHT RED     #CC6666
@@ -204,7 +203,6 @@ let g:colors_name="hubs"
 if has('gui_running')
     " COLORS
     let s:WHITE         = "#C5C8C6"
-    let s:CREAM         = "#DFCFAF"
     let s:LIGHT_GRAY    = "#7D858D"
     let s:GRAY          = "#666666"
     let s:DARK_GRAY     = "#2A2A2A"
@@ -215,10 +213,8 @@ if has('gui_running')
     let s:YELLOW        = "#F0C674"
     let s:LIGHT_GREEN   = "#96D6A6"
     let s:DARK_GREEN    = "#5F9C6F"
-    let s:GRAY_GREEN    = "#618E6D"
     let s:LIGHT_BLUE    = "#81A2BE"
     let s:DARK_BLUE     = "#5F819D"
-    let s:STEEL_BLUE    = "#B0C4DE"
     let s:DARK_VIOLET   = "#85678F"
     let s:LIGHT_VIOLET  = "#B294BB"
     let s:LIGHT_AQUA    = "#8ABEB7"
@@ -234,7 +230,6 @@ else
     " This uses the translateColor.py script
     " COLORS
     let s:WHITE         = "251"
-    let s:CREAM         = "187"
     let s:LIGHT_GRAY    = "102"
     let s:GRAY          = "241"
     let s:DARK_GRAY     = "235"
@@ -245,10 +240,8 @@ else
     let s:YELLOW        = "222"
     let s:LIGHT_GREEN   = "115"
     let s:DARK_GREEN    = "72"
-    let s:GRAY_GREEN    = "65"
     let s:LIGHT_BLUE    = "109"
     let s:DARK_BLUE     = "67"
-    let s:STEEL_BLUE    = "152"
     let s:DARK_VIOLET   = "96"
     let s:LIGHT_VIOLET  = "139"
     let s:LIGHT_AQUA    = "109"
