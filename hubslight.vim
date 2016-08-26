@@ -1,11 +1,10 @@
 " Vim color file
 "
-" File:             hubs.vim
+" File:             hubslight.vim
 " URL:              https://github.com/hhubbell/vim-hubs.git
 " Author:           Harry Hubbell (hhubbell@uvm.edu)
-" Version:          2.0.1
 "
-" A dark colorscheme with the right amount of contrast - Not too hard on the
+" A light colorscheme with the right amount of contrast - Not too hard on the
 " eyes while still being of use.
 "
 " Guidelines to follow while designing this colorscheme
@@ -119,11 +118,11 @@
 "   :so $VIMRUNTIME/syntax/hitest.vim
 "
 " -------------------------------------------------------------------------
-" ADDITIONAL DOCUMENTATION
+" SPECIAL FLAGS
 " -------------------------------------------------------------------------
 "
 " g:hubs_NoBold:
-"   
+"
 "   ABOUT:
 "   An option that can be implemented if the selected font is too small or
 "   does not render bold fonts well.  The following fonts are normally bold:
@@ -150,10 +149,10 @@
 "
 "   ABOUT:
 "   An option that can be implemented if the user prefers a darker
-"   background.  This is a user preference - for instance, on some
-"       displays the darker background can seem too dark, while on others
-"       the extra contrast looks much better; this is mainly due to monitor
-"       brand and color settings.
+"   foreground.  This is a user preference - for instance, on some
+"   displays the darker background can seem too dark, while on others
+"   the extra contrast looks much better; this is mainly due to monitor
+"   brand and color settings.
 "
 "   TO USE:
 "   Add the following line to your .vimrc file.
@@ -162,7 +161,7 @@
 "
 "
 " g:hubs_MatchTrailingWhitespace:
-"   
+"
 "   ABOUT:
 "   An option that can be implemented if the user wishes to see any
 "   trailing whitespace on lines.
@@ -183,15 +182,15 @@ endif
 " ------------------------------
 " GLOBALS
 " ------------------------------
-if ! exists("g:hubs_NoBold")
+if !exists("g:hubs_NoBold")
     let g:hubs_NoBold=0
 endif
 
-if ! exists("g:hubs_HighContrast")
+if !exists("g:hubs_HighContrast")
     let g:hubs_HighContrast=0
 endif
 
-if ! exists("g:hubs_MatchTrailingWhitespace")
+if !exists("g:hubs_MatchTrailingWhitespace")
     let g:hubs_MatchTrailingWhitespace=0
 endif
 
@@ -210,7 +209,7 @@ if has('gui_running')
     let s:LIGHT_RED     = "#CC6666"
     let s:DARK_RED      = "#A54242"
     let s:ORANGE        = "#DE935F"
-    let s:YELLOW        = "#E6D081"
+    let s:YELLOW        = "#E6A21B"
     let s:LIGHT_GREEN   = "#96D6A6"
     let s:DARK_GREEN    = "#5F9C6F"
     let s:LIGHT_BLUE    = "#81A2BE"
@@ -237,7 +236,7 @@ else
     let s:LIGHT_RED     = "167"
     let s:DARK_RED      = "131"
     let s:ORANGE        = "173"
-    let s:YELLOW        = "220"
+    let s:YELLOW        = "178"
     let s:LIGHT_GREEN   = "115"
     let s:DARK_GREEN    = "72"
     let s:LIGHT_BLUE    = "109"

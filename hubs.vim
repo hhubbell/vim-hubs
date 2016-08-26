@@ -3,7 +3,6 @@
 " File:             hubs.vim
 " URL:              https://github.com/hhubbell/vim-hubs.git
 " Author:           Harry Hubbell (hhubbell@uvm.edu)
-" Version:          2.0.1
 "
 " A dark colorscheme with the right amount of contrast - Not too hard on the
 " eyes while still being of use.
@@ -119,11 +118,11 @@
 "   :so $VIMRUNTIME/syntax/hitest.vim
 "
 " -------------------------------------------------------------------------
-" ADDITIONAL DOCUMENTATION
+" SPECIAL FLAGS
 " -------------------------------------------------------------------------
 "
 " g:hubs_NoBold:
-"   
+"
 "   ABOUT:
 "   An option that can be implemented if the selected font is too small or
 "   does not render bold fonts well.  The following fonts are normally bold:
@@ -151,9 +150,9 @@
 "   ABOUT:
 "   An option that can be implemented if the user prefers a darker
 "   background.  This is a user preference - for instance, on some
-"       displays the darker background can seem too dark, while on others
-"       the extra contrast looks much better; this is mainly due to monitor
-"       brand and color settings.
+"   displays the darker background can seem too dark, while on others
+"   the extra contrast looks much better; this is mainly due to monitor
+"   brand and color settings.
 "
 "   TO USE:
 "   Add the following line to your .vimrc file.
@@ -162,7 +161,7 @@
 "
 "
 " g:hubs_MatchTrailingWhitespace:
-"   
+"
 "   ABOUT:
 "   An option that can be implemented if the user wishes to see any
 "   trailing whitespace on lines.
@@ -183,15 +182,15 @@ endif
 " ------------------------------
 " GLOBALS
 " ------------------------------
-if ! exists("g:hubs_NoBold")
+if !exists("g:hubs_NoBold")
     let g:hubs_NoBold=0
 endif
 
-if ! exists("g:hubs_HighContrast")
+if !exists("g:hubs_HighContrast")
     let g:hubs_HighContrast=0
 endif
 
-if ! exists("g:hubs_MatchTrailingWhitespace")
+if !exists("g:hubs_MatchTrailingWhitespace")
     let g:hubs_MatchTrailingWhitespace=0
 endif
 
@@ -257,7 +256,7 @@ endif
 let s:COMMENT = s:DARK_GREEN
 let s:FOREGROUND = s:WHITE
 
-if g:hubs_HighContrast==0
+if g:hubs_HighContrast == 0
     let s:BACKGROUND = s:DARK_GRAY
 else
     let s:BACKGROUND = s:BLACK
@@ -301,7 +300,7 @@ exe "hi Todo            ".s:CTX_FG."=".s:BACKGROUND."   ".s:CTX_BG."=".s:COMMENT
 
 " --- VARIABLE TYPES -----------
 exe "hi Boolean         ".s:CTX_FG."=".s:LIGHT_RED
-exe "hi Character       ".s:CTX_FG."=".s:LIGHT_RED 
+exe "hi Character       ".s:CTX_FG."=".s:LIGHT_RED
 exe "hi Constant        ".s:CTX_FG."=".s:LIGHT_BLUE
 exe "hi Float           ".s:CTX_FG."=".s:DARK_BLUE
 exe "hi Number          ".s:CTX_FG."=".s:DARK_BLUE
@@ -388,7 +387,7 @@ exe "hi pythonDecorator ".s:CTX_FG."=".s:DARK_VIOLET
 " ------------------------------
 " SET BOLDS IF ALLOWED
 " ------------------------------
-if g:hubs_NoBold==0
+if g:hubs_NoBold == 0
     exe "hi Cursor          ".s:CTX_DEC."=bold"
     exe "hi Character       ".s:CTX_DEC."=bold"
     exe "hi Constant        ".s:CTX_DEC."=bold"
@@ -418,7 +417,7 @@ if g:hubs_NoBold==0
     exe "hi TypeDef         ".s:CTX_DEC."=bold"
 endif
 
-if g:hubs_MatchTrailingWhitespace==1
+if g:hubs_MatchTrailingWhitespace == 1
     exe "hi TrailingWhitespace ".s:CTX_BG."=".s:DARK_RED
     match TrailingWhitespace /\s\+$/
 endif
