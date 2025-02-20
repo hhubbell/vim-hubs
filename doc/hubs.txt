@@ -1,0 +1,86 @@
+File:             hubs.vim
+URL:              https://github.com/hhubbell/vim-hubs.git
+Author:           Harry Hubbell (hhubbell@uvm.edu)
+Version:          3.0.1
+
+A dark colorscheme with the right amount of contrast - Not too hard on the
+eyes while still being of use.
+
+Guidelines to follow while designing this colorscheme
+      Strings, chars, boolean - red
+      Comments                - green
+      Numbers                 - blue
+      Functions               - yellow
+
+-----------------------------------------------------------------------------
+Colorscheme Lookup Guide
+-----------------------------------------------------------------------------
+{COLORTABLE}
+
+------------------------------------------------------------------------
+Parameters
+-------------------------------------------------------------------------
+
+g:hubs_NoBold:
+    DEPRECATED:
+    This option was removed due to low utilization.
+
+    ABOUT:
+    An option that can be implemented if the selected font is too small or
+    does not render bold fonts well.  The following fonts are normally bold:
+
+          Cursor              Character           Constant
+          Conditional         Repeat              Exception
+          PreCondit           PreProc             Define
+          Macro               Type                TypeDef
+          StorageClass        Structure           MatchParen
+          SpecialChar         SpecialComment      SpellCap
+          Title
+
+    Refer to VIM DOCS to see what these syntax groups highlight
+
+    TO USE:
+    Add the following line to your .vimrc file, before your colorcheme
+    declaration.  This is important! The option will not work if it is set
+    after.
+
+          let g:hubs_NoBold=1
+
+
+g:hubs_HighContrast:
+    DEPRECATED:
+    By default, the template script generates a high-contrast colorscheme.
+    To change this, set BACKGROUND = DARK_GRAY for the low-contrast bg.
+
+    ABOUT:
+    An option that can be implemented if the user prefers a darker
+    background.  This is a user preference - for instance, on some
+      displays the darker background can seem too dark, while on others
+      the extra contrast looks much better; this is mainly due to monitor
+      brand and color settings.
+
+    TO USE:
+    Add the following line to your .vimrc file.
+
+          let g:hubs_HighContrast=1
+
+
+g:hubs_MatchTrailingWhitespace:
+    DEPRECATED:
+    This behavior can be handled by a .vimrc rule. To accomplish this
+    highlight class, add the following. This will color trailing
+    whitespace the same as Errors, for example. Any existing highlight
+    class can be used.
+
+        hi link TrailingWhitespace Error
+        match TrailingWhitespace /\s\+$/
+
+    ABOUT:
+    An option that can be implemented if the user wishes to see any
+    trailing whitespace on lines.
+
+    TO USE:
+    Add the following line to your .vimrc file.
+
+          let g:hubs_MatchTrailingWhitespace=1
+

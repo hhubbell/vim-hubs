@@ -2,7 +2,7 @@
 ### A simple dark colorscheme with the right amount of contrast
 
 Hubs is a basic color scheme adhering to the following principles:
-* The background should be an even black, with a white foreground
+* The background should be dark, with a bright foreground
 * Numbers should be blue
 * Built-in functions and definitions should be yellow
 * Strings should be red
@@ -10,7 +10,4 @@ Hubs is a basic color scheme adhering to the following principles:
 * Loops should be orange
 * Imports and PreProcs should be purple
 * Structs and Types should be teal
-
-In addition:
-* Bold should be used to add emphasis; should a small font fail to properly do so, bold should be removed without detriment
-* The colorscheme should render the same in the terminal and gui window
+* The colorscheme should render nearly the same in the terminal and gui window
