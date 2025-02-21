@@ -47,7 +47,7 @@ RULES = [
     # COMMENT
     ['Comment',     'DARK_GREEN',   'BACKGROUND',   'none'],
     ['Todo',        'BACKGROUND',   'DARK_GREEN',   'bold'],
-	['SpecialComment', 'DARK_GREEN','BACKGROUND',   'bold'],
+    ['SpecialComment', 'DARK_GREEN','BACKGROUND',   'bold'],
 
     # VARIABLE TYPES
     ['Boolean',     'LIGHT_RED',    'BACKGROUND',   'none'],
@@ -61,77 +61,77 @@ RULES = [
     ['Function',    'YELLOW',       'BACKGROUND',   'none'],
     ['Identifier',  'WHITE',        'BACKGROUND',   'none'],
 
-	# STATEMENT
-	['Conditional', 'ORANGE',       'BACKGROUND',   'bold'],
-	['Statement',   'YELLOW',       'BACKGROUND',   'none'],
-	['Repeat',      'ORANGE',       'BACKGROUND',   'bold'],
-	['Label',       'YELLOW',       'BACKGROUND',   'underline'],
-	['Operator',    'YELLOW',       'BACKGROUND',   'none'],
-	['Keyword',     'YELLOW',       'BACKGROUND',   'none'],
-	['Exception',   'YELLOW',       'BACKGROUND',   'bold'],
+    # STATEMENT
+    ['Conditional', 'ORANGE',       'BACKGROUND',   'bold'],
+    ['Statement',   'YELLOW',       'BACKGROUND',   'none'],
+    ['Repeat',      'ORANGE',       'BACKGROUND',   'bold'],
+    ['Label',       'YELLOW',       'BACKGROUND',   'underline'],
+    ['Operator',    'YELLOW',       'BACKGROUND',   'none'],
+    ['Keyword',     'YELLOW',       'BACKGROUND',   'none'],
+    ['Exception',   'YELLOW',       'BACKGROUND',   'bold'],
 
-	# PREPROC
-	['PreCondit',   'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
-	['PreProc',     'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
-	['Include',     'LIGHT_VIOLET', 'BACKGROUND',   'none'],
-	['Define',      'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
-	['Macro',       'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
+    # PREPROC
+    ['PreCondit',   'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
+    ['PreProc',     'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
+    ['Include',     'LIGHT_VIOLET', 'BACKGROUND',   'none'],
+    ['Define',      'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
+    ['Macro',       'LIGHT_VIOLET', 'BACKGROUND',   'bold'],
 
-	# TYPE
-	['Type',        'LIGHT_AQUA',   'BACKGROUND',   'bold'],
-	['Typedef',     'LIGHT_AQUA',   'BACKGROUND',   'bold'],
-	['StorageClass','DARK_AQUA',    'BACKGROUND',   'bold'],
-	['Structure',   'DARK_AQUA',    'BACKGROUND',   'bold'],
+    # TYPE
+    ['Type',        'LIGHT_AQUA',   'BACKGROUND',   'bold'],
+    ['Typedef',     'LIGHT_AQUA',   'BACKGROUND',   'bold'],
+    ['StorageClass','DARK_AQUA',    'BACKGROUND',   'bold'],
+    ['Structure',   'DARK_AQUA',    'BACKGROUND',   'bold'],
 
-	# SPECIAL
-	['Debug',       'LIGHT_GREEN',  'BACKGROUND',   'underline'],
-	['Delimiter',   'LIGHT_GRAY',   'BACKGROUND',   'none'],
-	['MatchParen',  'BACKGROUND',   'DARK_AQUA',    'bold'],
-	['Special',     'LIGHT_RED',    'BACKGROUND',   'bold'],
-	['SpecialChar', 'LIGHT_RED',    'BACKGROUND',   'bold'],
-	['SpecialKey',  'LIGHT_GREEN',  'BACKGROUND',   'none'],
-	['Tag',         'YELLOW',       'BACKGROUND',   'none'],
+    # SPECIAL
+    ['Debug',       'LIGHT_GREEN',  'BACKGROUND',   'underline'],
+    ['Delimiter',   'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['MatchParen',  'BACKGROUND',   'DARK_AQUA',    'bold'],
+    ['Special',     'LIGHT_RED',    'BACKGROUND',   'bold'],
+    ['SpecialChar', 'LIGHT_RED',    'BACKGROUND',   'bold'],
+    ['SpecialKey',  'LIGHT_GREEN',  'BACKGROUND',   'none'],
+    ['Tag',         'YELLOW',       'BACKGROUND',   'none'],
 
-	# SPELLING
-	['SpellBad',    'FOREGROUND',   'DARK_RED',     'bold'],
-	['SpellCap',    'FOREGROUND',   'DARK_BLUE',    'bold'],
+    # SPELLING
+    ['SpellBad',    'FOREGROUND',   'DARK_RED',     'bold'],
+    ['SpellCap',    'FOREGROUND',   'DARK_BLUE',    'bold'],
 
-	# DIFF
-	['DiffFile',    'LIGHT_GRAY',   'BACKGROUND',   'none'],
-	['DiffNewFile', 'BACKGROUND',   'DARK_GREEN',   'none'],
-	['DiffOldFile', 'BACKGROUND',   'LIGHT_RED',    'none'],
-	['DiffAdded',   'DARK_GREEN',   'BACKGROUND',   'none'],
-	['DiffRemoved', 'LIGHT_RED',    'BACKGROUND',   'none'],
-	['DiffChange',  'YELLOW',       'BACKGROUND',   'bold'],
-	['DiffText',    'BACKGROUND',   'YELLOW',       'none'],
-	['DiffLine',    'DARK_AQUA',    'BACKGROUND',   'none'],
+    # DIFF
+    ['DiffFile',    'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['DiffNewFile', 'BACKGROUND',   'DARK_GREEN',   'none'],
+    ['DiffOldFile', 'BACKGROUND',   'LIGHT_RED',    'none'],
+    ['DiffAdded',   'DARK_GREEN',   'BACKGROUND',   'none'],
+    ['DiffRemoved', 'LIGHT_RED',    'BACKGROUND',   'none'],
+    ['DiffChange',  'YELLOW',       'BACKGROUND',   'bold'],
+    ['DiffText',    'BACKGROUND',   'YELLOW',       'none'],
+    ['DiffLine',    'DARK_AQUA',    'BACKGROUND',   'none'],
     ['Added',       'LIGHT_GREEN',  'BACKGROUND',   'none'],
     ['Removed',     'LIGHT_RED',    'BACKGROUND',   'none'],
 
-	# UNDERLINED
-	['Underlined',  'LIGHT_BLUE',   'BACKGROUND',   'underline'],
+    # UNDERLINED
+    ['Underlined',  'LIGHT_BLUE',   'BACKGROUND',   'underline'],
 
-	# ERROR
+    # ERROR
     ['Error',       'WHITE',        'DARK_RED',     'none'],
-	['ErrorMsg',    'WHITE',        'DARK_RED',     'none'],
-	['WarningMsg',  'WHITE',        'DARK_RED',     'none'],
+    ['ErrorMsg',    'WHITE',        'DARK_RED',     'none'],
+    ['WarningMsg',  'WHITE',        'DARK_RED',     'none'],
 
-	# HTML SPECIFIC
-	['htmlArg',     'DARK_AQUA',    'BACKGROUND',   'none'],
-	['htmlTag',     'LIGHT_GRAY',   'BACKGROUND',   'none'],
-	['htmlEndTag',  'LIGHT_GRAY',   'BACKGROUND',   'none'],
-	['htmlTagN',    'YELLOW',       'BACKGROUND',   'none'],
-	['htmlTagName', 'YELLOW',       'BACKGROUND',   'none'],
-	['htmlSpecialTagName', 'YELLOW','BACKGROUND',   'none'],
+    # HTML SPECIFIC
+    ['htmlArg',     'DARK_AQUA',    'BACKGROUND',   'none'],
+    ['htmlTag',     'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['htmlEndTag',  'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['htmlTagN',    'YELLOW',       'BACKGROUND',   'none'],
+    ['htmlTagName', 'YELLOW',       'BACKGROUND',   'none'],
+    ['htmlSpecialTagName', 'YELLOW','BACKGROUND',   'none'],
 
     # XML SPECIFIC
-	['xmlAttrib',   'DARK_AQUA',    'BACKGROUND',   'none'],
-	['xmlTag',      'LIGHT_GRAY',   'BACKGROUND',   'none'],
-	['xmlEndTag',   'LIGHT_GRAY',   'BACKGROUND',   'none'],
-	['xmlTagName',  'YELLOW',       'BACKGROUND',   'none'],
+    ['xmlAttrib',   'DARK_AQUA',    'BACKGROUND',   'none'],
+    ['xmlTag',      'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['xmlEndTag',   'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['xmlTagName',  'YELLOW',       'BACKGROUND',   'none'],
     
-	# PYTHON SPECIFIC
-	['pythonDecorator', 'DARK_VIOLET', 'BACKGROUND','bold']
+    # PYTHON SPECIFIC
+    ['pythonDecorator', 'DARK_VIOLET', 'BACKGROUND','bold']
 ]
 
 
