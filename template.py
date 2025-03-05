@@ -37,6 +37,7 @@ RULES = [
     ['Title',       'WHITE',        'BACKGROUND',   'none'],
     ['Directory',   'DARK_BLUE',    'BACKGROUND',   'bold'],
     ['Search',      'BACKGROUND',   'YELLOW',       'none'],
+    ['WildMenu',    'BACKGROUND',   'YELLOW',       'bold'],
     ['Pmenu',       'FOREGROUND',   'BACKGROUND',   'none'],
     ['PmenuSel',    'BACKGROUND',   'YELLOW',       'bold'],
     ['PmenuSbar',   'FOREGROUND',   'FOREGROUND',   'none'],

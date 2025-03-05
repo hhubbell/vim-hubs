@@ -128,6 +128,7 @@ if has('gui_running') || &t_Co == 256
     hi Title guifg=#C5C8C6 guibg=#1F1F1F gui=none ctermfg=251 ctermbg=234 cterm=none
     hi Directory guifg=#5F819D guibg=#1F1F1F gui=bold ctermfg=67 ctermbg=234 cterm=bold
     hi Search guifg=#1F1F1F guibg=#F0C674 gui=none ctermfg=234 ctermbg=222 cterm=none
+    hi WildMenu guifg=#1F1F1F guibg=#F0C674 gui=bold ctermfg=234 ctermbg=222 cterm=bold
     hi Pmenu guifg=#C5C8C6 guibg=#1F1F1F gui=none ctermfg=251 ctermbg=234 cterm=none
     hi PmenuSel guifg=#1F1F1F guibg=#F0C674 gui=bold ctermfg=234 ctermbg=222 cterm=bold
     hi PmenuSbar guifg=#C5C8C6 guibg=#C5C8C6 gui=none ctermfg=251 ctermbg=251 cterm=none
