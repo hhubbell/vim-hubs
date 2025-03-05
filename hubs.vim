@@ -15,23 +15,23 @@
 " -----------------------------------------------------------------------------
 " Colorscheme Lookup Guide
 " -----------------------------------------------------------------------------
-" Color: dark_violet   #85678F   96
-" Color: gray          #666666  241
-" Color: black         #1F1F1F  234
-" Color: orange        #DE935F  173
-" Color: light_red     #CC6666  167
-" Color: light_green   #96D6A6  115
-" Color: light_aqua    #87AFAF  109
-" Color: dark_gray     #2A2A2A  235
-" Color: dark_blue     #5F819D   67
-" Color: dark_aqua     #5F8787   66
-" Color: dark_green    #5F9C6F   72
-" Color: dark_red      #A54242  131
-" Color: light_violet  #AF87AF  139
-" Color: yellow        #F0C674  222
-" Color: light_blue    #81A2BE  109
 " Color: white         #C5C8C6  251
 " Color: light_gray    #7D858D  102
+" Color: gray          #666666  241
+" Color: dark_gray     #2A2A2A  235
+" Color: black         #1F1F1F  234
+" Color: light_red     #CC6666  167
+" Color: dark_red      #A54242  131
+" Color: orange        #DE935F  173
+" Color: yellow        #F0C674  222
+" Color: light_green   #96D6A6  115
+" Color: dark_green    #5F9C6F   72
+" Color: light_blue    #81A2BE  109
+" Color: dark_blue     #5F819D   67
+" Color: dark_violet   #85678F   96
+" Color: light_violet  #AF87AF  139
+" Color: light_aqua    #87AFAF  109
+" Color: dark_aqua     #5F8787   66
 "
 " ------------------------------------------------------------------------
 " Parameters
