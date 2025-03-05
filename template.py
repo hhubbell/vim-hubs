@@ -22,6 +22,7 @@ RULES = [
     # WORKSPACE
     ['Cursor',      'BLACK',        'WHITE',        'bold'],
     ['LineNr',      'GRAY',         'DARK_GRAY',    'none'],
+    ['CursorLineNr','GRAY',         'DARK_GRAY',    'bold'],
     ['NonText',     'DARK_GRAY',    'BACKGROUND',   'none'],
     ['Normal',      'FOREGROUND',   'BACKGROUND',   'none'],
     ['Visual',      'BACKGROUND',   'FOREGROUND',   'none'],

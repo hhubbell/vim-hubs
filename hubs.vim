@@ -113,6 +113,7 @@ let g:colors_name='hubs'
 if has('gui_running') || &t_Co == 256
     hi Cursor guifg=#1F1F1F guibg=#C5C8C6 gui=bold ctermfg=234 ctermbg=251 cterm=bold
     hi LineNr guifg=#666666 guibg=#2A2A2A gui=none ctermfg=241 ctermbg=235 cterm=none
+    hi CursorLineNr guifg=#666666 guibg=#2A2A2A gui=bold ctermfg=241 ctermbg=235 cterm=bold
     hi NonText guifg=#2A2A2A guibg=#1F1F1F gui=none ctermfg=235 ctermbg=234 cterm=none
     hi Normal guifg=#C5C8C6 guibg=#1F1F1F gui=none ctermfg=251 ctermbg=234 cterm=none
     hi Visual guifg=#1F1F1F guibg=#C5C8C6 gui=none ctermfg=234 ctermbg=251 cterm=none
