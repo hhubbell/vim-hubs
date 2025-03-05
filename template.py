@@ -93,6 +93,7 @@ RULES = [
     ['SpecialChar', 'LIGHT_RED',    'BACKGROUND',   'bold'],
     ['SpecialKey',  'LIGHT_GREEN',  'BACKGROUND',   'none'],
     ['Tag',         'YELLOW',       'BACKGROUND',   'none'],
+    ['SignColumn',  'GRAY',         'DARK_GRAY',    'none'],
 
     # SPELLING
     ['SpellBad',    'FOREGROUND',   'DARK_RED',     'bold'],
@@ -102,12 +103,14 @@ RULES = [
     ['DiffFile',    'LIGHT_GRAY',   'BACKGROUND',   'none'],
     ['DiffNewFile', 'BACKGROUND',   'DARK_GREEN',   'none'],
     ['DiffOldFile', 'BACKGROUND',   'LIGHT_RED',    'none'],
+    ['DiffAdd',     'DARK_GREEN',   'BACKGROUND',   'none'],
     ['DiffAdded',   'DARK_GREEN',   'BACKGROUND',   'none'],
+    ['DiffDelete',  'LIGHT_RED',    'BACKGROUND',   'none'],
     ['DiffRemoved', 'LIGHT_RED',    'BACKGROUND',   'none'],
     ['DiffChange',  'YELLOW',       'BACKGROUND',   'bold'],
     ['DiffText',    'BACKGROUND',   'YELLOW',       'none'],
     ['DiffLine',    'DARK_AQUA',    'BACKGROUND',   'none'],
-    ['Added',       'LIGHT_GREEN',  'BACKGROUND',   'none'],
+    ['Added',       'DARK_GREEN',   'BACKGROUND',   'none'],
     ['Removed',     'LIGHT_RED',    'BACKGROUND',   'none'],
 
     # UNDERLINED
@@ -117,6 +120,10 @@ RULES = [
     ['Error',       'WHITE',        'DARK_RED',     'none'],
     ['ErrorMsg',    'WHITE',        'DARK_RED',     'none'],
     ['WarningMsg',  'WHITE',        'DARK_RED',     'none'],
+
+    # CODE FOLDING
+    ['Folded',      'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['FoldColumn',  'GRAY',         'DARK_GRAY',    'none'],
 
     # HTML SPECIFIC
     ['htmlArg',     'DARK_AQUA',    'BACKGROUND',   'none'],
