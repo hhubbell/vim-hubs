@@ -22,6 +22,7 @@ RULES = [
     # WORKSPACE
     ['Cursor',      'BLACK',        'WHITE',        'bold'],
     ['LineNr',      'GRAY',         'DARK_GRAY',    'none'],
+    ['CursorLineNr','GRAY',         'DARK_GRAY',    'bold'],
     ['NonText',     'DARK_GRAY',    'BACKGROUND',   'none'],
     ['Normal',      'FOREGROUND',   'BACKGROUND',   'none'],
     ['Visual',      'BACKGROUND',   'FOREGROUND',   'none'],
@@ -37,6 +38,7 @@ RULES = [
     ['Title',       'WHITE',        'BACKGROUND',   'none'],
     ['Directory',   'DARK_BLUE',    'BACKGROUND',   'bold'],
     ['Search',      'BACKGROUND',   'YELLOW',       'none'],
+    ['WildMenu',    'BACKGROUND',   'YELLOW',       'bold'],
     ['Pmenu',       'FOREGROUND',   'BACKGROUND',   'none'],
     ['PmenuSel',    'BACKGROUND',   'YELLOW',       'bold'],
     ['PmenuSbar',   'FOREGROUND',   'FOREGROUND',   'none'],
@@ -91,6 +93,7 @@ RULES = [
     ['SpecialChar', 'LIGHT_RED',    'BACKGROUND',   'bold'],
     ['SpecialKey',  'LIGHT_GREEN',  'BACKGROUND',   'none'],
     ['Tag',         'YELLOW',       'BACKGROUND',   'none'],
+    ['SignColumn',  'GRAY',         'DARK_GRAY',    'none'],
 
     # SPELLING
     ['SpellBad',    'FOREGROUND',   'DARK_RED',     'bold'],
@@ -100,12 +103,14 @@ RULES = [
     ['DiffFile',    'LIGHT_GRAY',   'BACKGROUND',   'none'],
     ['DiffNewFile', 'BACKGROUND',   'DARK_GREEN',   'none'],
     ['DiffOldFile', 'BACKGROUND',   'LIGHT_RED',    'none'],
+    ['DiffAdd',     'DARK_GREEN',   'BACKGROUND',   'none'],
     ['DiffAdded',   'DARK_GREEN',   'BACKGROUND',   'none'],
+    ['DiffDelete',  'LIGHT_RED',    'BACKGROUND',   'none'],
     ['DiffRemoved', 'LIGHT_RED',    'BACKGROUND',   'none'],
     ['DiffChange',  'YELLOW',       'BACKGROUND',   'bold'],
     ['DiffText',    'BACKGROUND',   'YELLOW',       'none'],
     ['DiffLine',    'DARK_AQUA',    'BACKGROUND',   'none'],
-    ['Added',       'LIGHT_GREEN',  'BACKGROUND',   'none'],
+    ['Added',       'DARK_GREEN',   'BACKGROUND',   'none'],
     ['Removed',     'LIGHT_RED',    'BACKGROUND',   'none'],
 
     # UNDERLINED
@@ -115,6 +120,10 @@ RULES = [
     ['Error',       'WHITE',        'DARK_RED',     'none'],
     ['ErrorMsg',    'WHITE',        'DARK_RED',     'none'],
     ['WarningMsg',  'WHITE',        'DARK_RED',     'none'],
+
+    # CODE FOLDING
+    ['Folded',      'LIGHT_GRAY',   'BACKGROUND',   'none'],
+    ['FoldColumn',  'GRAY',         'DARK_GRAY',    'none'],
 
     # HTML SPECIFIC
     ['htmlArg',     'DARK_AQUA',    'BACKGROUND',   'none'],
@@ -142,7 +151,7 @@ def fmt_color_table(colorlib):
     Return a pprinted string of the given `colorlib` lookup table
     """
     fmt = []
-    for key, value in colorlib.items():
+    for key, value in sorted(colorlib.items(), key=lambda x: x[1]['index']):
         fmt.append(f"Color: {key.lower():<12}  {value['gui']}  {value['cterm']:>3}")
 
     return '\n'.join(fmt)
@@ -153,8 +162,28 @@ def mkcolorlib(gui_colors, cterm_colors):
     and each value is a structure containing the appropriate gui hex color
     code, or the cterm color code.
     """
-    gui_dict = dict(gui_colors)
-    cterm_dict = dict(cterm_colors)
+    # Doing this the long way is required to retain a "sort key"
+    # so that the color table remains in order every time this
+    # script is run
+    index = {}
+    idx_c = 0
+
+    gui_dict = {}
+    for color in gui_colors:
+        gui_dict[color[0]] = color[1]
+        index[color[0]] = idx_c
+
+        idx_c += 1
+
+    cterm_dict = {}
+    for color in cterm_colors:
+        cterm_dict[color[0]] = color[1]
+
+        # This path will never happen unless we have terminal specific colors
+        if color[0] not in index:
+            index[color[0]] = idx_c
+
+            idx_c += 1
 
     keys = gui_dict.keys() | cterm_dict.keys()
 
@@ -162,7 +191,8 @@ def mkcolorlib(gui_colors, cterm_colors):
     for key in keys:
         res[key] = {
             'gui': gui_dict.get(key, 'NONE'),
-            'cterm': cterm_dict.get(key, 'NONE')}
+            'cterm': cterm_dict.get(key, 'NONE'),
+            'index': index.get(key, -1)}
 
     return res
 

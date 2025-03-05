@@ -15,23 +15,23 @@
 " -----------------------------------------------------------------------------
 " Colorscheme Lookup Guide
 " -----------------------------------------------------------------------------
-" Color: dark_violet   #85678F   96
-" Color: gray          #666666  241
-" Color: black         #1F1F1F  234
-" Color: orange        #DE935F  173
-" Color: light_red     #CC6666  167
-" Color: light_green   #96D6A6  115
-" Color: light_aqua    #87AFAF  109
-" Color: dark_gray     #2A2A2A  235
-" Color: dark_blue     #5F819D   67
-" Color: dark_aqua     #5F8787   66
-" Color: dark_green    #5F9C6F   72
-" Color: dark_red      #A54242  131
-" Color: light_violet  #AF87AF  139
-" Color: yellow        #F0C674  222
-" Color: light_blue    #81A2BE  109
 " Color: white         #C5C8C6  251
 " Color: light_gray    #7D858D  102
+" Color: gray          #666666  241
+" Color: dark_gray     #2A2A2A  235
+" Color: black         #1F1F1F  234
+" Color: light_red     #CC6666  167
+" Color: dark_red      #A54242  131
+" Color: orange        #DE935F  173
+" Color: yellow        #F0C674  222
+" Color: light_green   #96D6A6  115
+" Color: dark_green    #5F9C6F   72
+" Color: light_blue    #81A2BE  109
+" Color: dark_blue     #5F819D   67
+" Color: dark_violet   #85678F   96
+" Color: light_violet  #AF87AF  139
+" Color: light_aqua    #87AFAF  109
+" Color: dark_aqua     #5F8787   66
 "
 " ------------------------------------------------------------------------
 " Parameters
@@ -113,6 +113,7 @@ let g:colors_name='hubs'
 if has('gui_running') || &t_Co == 256
     hi Cursor guifg=#1F1F1F guibg=#C5C8C6 gui=bold ctermfg=234 ctermbg=251 cterm=bold
     hi LineNr guifg=#666666 guibg=#2A2A2A gui=none ctermfg=241 ctermbg=235 cterm=none
+    hi CursorLineNr guifg=#666666 guibg=#2A2A2A gui=bold ctermfg=241 ctermbg=235 cterm=bold
     hi NonText guifg=#2A2A2A guibg=#1F1F1F gui=none ctermfg=235 ctermbg=234 cterm=none
     hi Normal guifg=#C5C8C6 guibg=#1F1F1F gui=none ctermfg=251 ctermbg=234 cterm=none
     hi Visual guifg=#1F1F1F guibg=#C5C8C6 gui=none ctermfg=234 ctermbg=251 cterm=none
@@ -128,6 +129,7 @@ if has('gui_running') || &t_Co == 256
     hi Title guifg=#C5C8C6 guibg=#1F1F1F gui=none ctermfg=251 ctermbg=234 cterm=none
     hi Directory guifg=#5F819D guibg=#1F1F1F gui=bold ctermfg=67 ctermbg=234 cterm=bold
     hi Search guifg=#1F1F1F guibg=#F0C674 gui=none ctermfg=234 ctermbg=222 cterm=none
+    hi WildMenu guifg=#1F1F1F guibg=#F0C674 gui=bold ctermfg=234 ctermbg=222 cterm=bold
     hi Pmenu guifg=#C5C8C6 guibg=#1F1F1F gui=none ctermfg=251 ctermbg=234 cterm=none
     hi PmenuSel guifg=#1F1F1F guibg=#F0C674 gui=bold ctermfg=234 ctermbg=222 cterm=bold
     hi PmenuSbar guifg=#C5C8C6 guibg=#C5C8C6 gui=none ctermfg=251 ctermbg=251 cterm=none
@@ -168,22 +170,27 @@ if has('gui_running') || &t_Co == 256
     hi SpecialChar guifg=#CC6666 guibg=#1F1F1F gui=bold ctermfg=167 ctermbg=234 cterm=bold
     hi SpecialKey guifg=#96D6A6 guibg=#1F1F1F gui=none ctermfg=115 ctermbg=234 cterm=none
     hi Tag guifg=#F0C674 guibg=#1F1F1F gui=none ctermfg=222 ctermbg=234 cterm=none
+    hi SignColumn guifg=#666666 guibg=#2A2A2A gui=none ctermfg=241 ctermbg=235 cterm=none
     hi SpellBad guifg=#C5C8C6 guibg=#A54242 gui=bold ctermfg=251 ctermbg=131 cterm=bold
     hi SpellCap guifg=#C5C8C6 guibg=#5F819D gui=bold ctermfg=251 ctermbg=67 cterm=bold
     hi DiffFile guifg=#7D858D guibg=#1F1F1F gui=none ctermfg=102 ctermbg=234 cterm=none
     hi DiffNewFile guifg=#1F1F1F guibg=#5F9C6F gui=none ctermfg=234 ctermbg=72 cterm=none
     hi DiffOldFile guifg=#1F1F1F guibg=#CC6666 gui=none ctermfg=234 ctermbg=167 cterm=none
+    hi DiffAdd guifg=#5F9C6F guibg=#1F1F1F gui=none ctermfg=72 ctermbg=234 cterm=none
     hi DiffAdded guifg=#5F9C6F guibg=#1F1F1F gui=none ctermfg=72 ctermbg=234 cterm=none
+    hi DiffDelete guifg=#CC6666 guibg=#1F1F1F gui=none ctermfg=167 ctermbg=234 cterm=none
     hi DiffRemoved guifg=#CC6666 guibg=#1F1F1F gui=none ctermfg=167 ctermbg=234 cterm=none
     hi DiffChange guifg=#F0C674 guibg=#1F1F1F gui=bold ctermfg=222 ctermbg=234 cterm=bold
     hi DiffText guifg=#1F1F1F guibg=#F0C674 gui=none ctermfg=234 ctermbg=222 cterm=none
     hi DiffLine guifg=#5F8787 guibg=#1F1F1F gui=none ctermfg=66 ctermbg=234 cterm=none
-    hi Added guifg=#96D6A6 guibg=#1F1F1F gui=none ctermfg=115 ctermbg=234 cterm=none
+    hi Added guifg=#5F9C6F guibg=#1F1F1F gui=none ctermfg=72 ctermbg=234 cterm=none
     hi Removed guifg=#CC6666 guibg=#1F1F1F gui=none ctermfg=167 ctermbg=234 cterm=none
     hi Underlined guifg=#81A2BE guibg=#1F1F1F gui=underline ctermfg=109 ctermbg=234 cterm=underline
     hi Error guifg=#C5C8C6 guibg=#A54242 gui=none ctermfg=251 ctermbg=131 cterm=none
     hi ErrorMsg guifg=#C5C8C6 guibg=#A54242 gui=none ctermfg=251 ctermbg=131 cterm=none
     hi WarningMsg guifg=#C5C8C6 guibg=#A54242 gui=none ctermfg=251 ctermbg=131 cterm=none
+    hi Folded guifg=#7D858D guibg=#1F1F1F gui=none ctermfg=102 ctermbg=234 cterm=none
+    hi FoldColumn guifg=#666666 guibg=#2A2A2A gui=none ctermfg=241 ctermbg=235 cterm=none
     hi htmlArg guifg=#5F8787 guibg=#1F1F1F gui=none ctermfg=66 ctermbg=234 cterm=none
     hi htmlTag guifg=#7D858D guibg=#1F1F1F gui=none ctermfg=102 ctermbg=234 cterm=none
     hi htmlEndTag guifg=#7D858D guibg=#1F1F1F gui=none ctermfg=102 ctermbg=234 cterm=none
