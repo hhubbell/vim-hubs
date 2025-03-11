@@ -229,8 +229,8 @@ if __name__ == '__main__':
     #   1. Generate documentation
     #   2. Generate syntax definition
     #   3. Generate highlight rules
-    #
-    # ** Currently no link rules defined **
+    #   4. Generate link rules ** Currently no link rules defined **
+    #   5. Generate terminal palette
     #
 
     # Generate colorscheme documentation
@@ -283,4 +283,29 @@ if __name__ == '__main__':
                 bg_t=bg['cterm'],
                 dec=rule[3]))
 
-    print("endif")
+    print("endif\n")
+
+    # Generate terminal palette
+    # See https://vimhelp.org/terminal.txt.html#term_setansicolors()
+    print(("let g:terminal_ansi_colors = ["
+        "'{black}', '{dark_red}', '{dark_green}', '{brown}',"
+        "'{dark_blue}', '{dark_mag}', '{dark_cyan}', '{light_gray}',"
+        "'{dark_gray}', '{red}', '{green}', '{yellow}',"
+        "'{blue}', '{mag}', '{cyan}', '{white}']\n").format(
+            black=colib['BLACK']['gui'],
+            dark_red=colib['DARK_RED']['gui'],
+            dark_green=colib['DARK_GREEN']['gui'],
+            brown=colib['ORANGE']['gui'],
+            dark_blue=colib['DARK_BLUE']['gui'],
+            dark_mag=colib['DARK_VIOLET']['gui'],
+            dark_cyan=colib['DARK_AQUA']['gui'],
+            light_gray=colib['LIGHT_GRAY']['gui'],
+            dark_gray=colib['DARK_GRAY']['gui'],
+            red=colib['LIGHT_RED']['gui'],
+            green=colib['LIGHT_GREEN']['gui'],
+            yellow=colib['YELLOW']['gui'],
+            blue=colib['LIGHT_BLUE']['gui'],
+            mag=colib['LIGHT_VIOLET']['gui'],
+            cyan=colib['LIGHT_AQUA']['gui'],
+            white=colib['WHITE']['gui']))
+

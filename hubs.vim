@@ -203,3 +203,6 @@ if has('gui_running') || &t_Co == 256
     hi xmlTagName guifg=#F0C674 guibg=#1F1F1F gui=none ctermfg=222 ctermbg=234 cterm=none
     hi pythonDecorator guifg=#85678F guibg=#1F1F1F gui=bold ctermfg=96 ctermbg=234 cterm=bold
 endif
+
+let g:terminal_ansi_colors = ['#1F1F1F', '#A54242', '#5F9C6F', '#DE935F','#5F819D', '#85678F', '#5F8787', '#7D858D','#2A2A2A', '#CC6666', '#96D6A6', '#F0C674','#81A2BE', '#AF87AF', '#87AFAF', '#C5C8C6']
+
