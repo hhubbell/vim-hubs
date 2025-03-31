@@ -170,7 +170,7 @@ if has('gui_running') || &t_Co == 256
     hi SpecialChar guifg=#CC6666 guibg=#1F1F1F gui=bold ctermfg=167 ctermbg=234 cterm=bold
     hi SpecialKey guifg=#96D6A6 guibg=#1F1F1F gui=none ctermfg=115 ctermbg=234 cterm=none
     hi Tag guifg=#F0C674 guibg=#1F1F1F gui=none ctermfg=222 ctermbg=234 cterm=none
-    hi SignColumn guifg=#666666 guibg=#2A2A2A gui=none ctermfg=241 ctermbg=235 cterm=none
+    hi SignColumn guifg=#5F8787 guibg=#2A2A2A gui=bold ctermfg=66 ctermbg=235 cterm=bold
     hi SpellBad guifg=#C5C8C6 guibg=#A54242 gui=bold ctermfg=251 ctermbg=131 cterm=bold
     hi SpellCap guifg=#C5C8C6 guibg=#5F819D gui=bold ctermfg=251 ctermbg=67 cterm=bold
     hi DiffFile guifg=#7D858D guibg=#1F1F1F gui=none ctermfg=102 ctermbg=234 cterm=none

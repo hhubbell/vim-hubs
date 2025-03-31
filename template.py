@@ -93,7 +93,7 @@ RULES = [
     ['SpecialChar', 'LIGHT_RED',    'BACKGROUND',   'bold'],
     ['SpecialKey',  'LIGHT_GREEN',  'BACKGROUND',   'none'],
     ['Tag',         'YELLOW',       'BACKGROUND',   'none'],
-    ['SignColumn',  'GRAY',         'DARK_GRAY',    'none'],
+    ['SignColumn',  'DARK_AQUA',    'DARK_GRAY',    'bold'],
 
     # SPELLING
     ['SpellBad',    'FOREGROUND',   'DARK_RED',     'bold'],
