@@ -23,6 +23,7 @@ RULES = [
     ['Cursor',      'BLACK',        'WHITE',        'bold'],
     ['LineNr',      'GRAY',         'DARK_GRAY',    'none'],
     ['CursorLineNr','GRAY',         'DARK_GRAY',    'bold'],
+    ['CursorLine',  'WHITE',        'DARK_GRAY',    'underline,bold'],
     ['NonText',     'DARK_GRAY',    'BACKGROUND',   'none'],
     ['Normal',      'FOREGROUND',   'BACKGROUND',   'none'],
     ['Visual',      'BACKGROUND',   'FOREGROUND',   'none'],
