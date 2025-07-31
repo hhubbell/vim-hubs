@@ -89,7 +89,7 @@ RULES = [
     # SPECIAL
     ['Debug',       'LIGHT_GREEN',  'BACKGROUND',   'underline'],
     ['Delimiter',   'LIGHT_GRAY',   'BACKGROUND',   'none'],
-    ['MatchParen',  'BACKGROUND',   'DARK_AQUA',    'bold'],
+    ['MatchParen',  'DARK_AQUA',    'BACKGROUND',   'bold'],
     ['Special',     'LIGHT_RED',    'BACKGROUND',   'bold'],
     ['SpecialChar', 'LIGHT_RED',    'BACKGROUND',   'bold'],
     ['SpecialKey',  'LIGHT_GREEN',  'BACKGROUND',   'none'],

@@ -166,7 +166,7 @@ if has('gui_running') || &t_Co == 256
     hi Structure guifg=#5F8787 guibg=#1F1F1F gui=bold ctermfg=66 ctermbg=234 cterm=bold
     hi Debug guifg=#96D6A6 guibg=#1F1F1F gui=underline ctermfg=115 ctermbg=234 cterm=underline
     hi Delimiter guifg=#7D858D guibg=#1F1F1F gui=none ctermfg=102 ctermbg=234 cterm=none
-    hi MatchParen guifg=#1F1F1F guibg=#5F8787 gui=bold ctermfg=234 ctermbg=66 cterm=bold
+    hi MatchParen guifg=#5F8787 guibg=#1F1F1F gui=bold ctermfg=66 ctermbg=234 cterm=bold
     hi Special guifg=#CC6666 guibg=#1F1F1F gui=bold ctermfg=167 ctermbg=234 cterm=bold
     hi SpecialChar guifg=#CC6666 guibg=#1F1F1F gui=bold ctermfg=167 ctermbg=234 cterm=bold
     hi SpecialKey guifg=#96D6A6 guibg=#1F1F1F gui=none ctermfg=115 ctermbg=234 cterm=none
